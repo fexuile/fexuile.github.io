@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="fexuileのBlog">
 <meta property="og:description" content="Luogu2827 蚯蚓考虑所有的增加相当于这个减小，然后因为割出来的长度和原长的单调性相关，所以直接拿3个队列替换优先队列使用即可。 [NOI2001]食物链考虑维护三个并查集，分别表示类别，吃我的和我吃的，然后根据信息合并即可。 BZOJ4548 小奇的糖果我们可以钦定一种颜色不选，那么我们把它们按照$x$轴排序，剩下的就是相邻两个和删除最上面的，用双端链表+树状数组维护即可。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-21T07:30:26.766Z">
+<meta property="og:updated_time" content="2019-10-21T09:26:40.281Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/10/21/CSP2019%E5%89%8D%E7%9A%84%E9%80%80%E5%BD%B9%E6%97%A5%E5%BF%971/">
@@ -251,7 +251,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-10-21 11:17:07 / 修改时间：15:30:26" itemprop="dateCreated datePublished" datetime="2019-10-21T11:17:07+08:00">2019-10-21</time>
+              <time title="创建时间：2019-10-21 11:17:07 / 修改时间：17:26:40" itemprop="dateCreated datePublished" datetime="2019-10-21T11:17:07+08:00">2019-10-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,6 +287,8 @@
 <h2 id="CF741D-Arpa’s-letter-marked-tree-and-Mehrdad’s-Dokhtar-kosh-paths"><a href="#CF741D-Arpa’s-letter-marked-tree-and-Mehrdad’s-Dokhtar-kosh-paths" class="headerlink" title="CF741D Arpa’s letter-marked tree and Mehrdad’s Dokhtar-kosh paths"></a>CF741D Arpa’s letter-marked tree and Mehrdad’s Dokhtar-kosh paths</h2><p>dsu on tree的板子题</p>
 <p>直接用个桶维护即可。</p>
 <h2 id="NOI2016-区间"><a href="#NOI2016-区间" class="headerlink" title="[NOI2016]区间"></a>[NOI2016]区间</h2><p>考虑按照长度排序，然后依次插入并且删除，这样子得到的就是最大的，至于查是否有超过$m$被覆盖，直接用线段树即可。</p>
+<h2 id="CF10D-LCIS"><a href="#CF10D-LCIS" class="headerlink" title="CF10D LCIS"></a>CF10D LCIS</h2><p>显然是$dp$，但是这个转移方程比较牛逼（我现在已经做不出蓝题了）<br>令$f_{i,j}$表示到了$a$序列的$i$位置，到了$b$序列的$j$位置，很显然有：<br>$$<br>f_{i,j}=<br>\begin{cases}<br>f_{i-1,j} \ \ \ a_i!=b_j\newline<br>max(f_{i-1,j},f_{i-1,pos}) \ \ \ a_i==b_j<br>\end{cases}<br>$$</p>
+<h2 id="国家集训队-middle"><a href="#国家集训队-middle" class="headerlink" title="[国家集训队]middle"></a>[国家集训队]middle</h2><p>考虑建一颗主席树，然后对于不同的位置改变最多有一个位置变成$-1$，然后显然对于每一个询问$a,b,c,d$显然$b+1,c-1$一定是固定的$sum$,然后只需要维护右边最大值和左边最大值即可。</p>
 
     </div>
 
@@ -338,7 +340,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu2827-蚯蚓"><span class="nav-number">1.</span> <span class="nav-text">Luogu2827 蚯蚓</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NOI2001-食物链"><span class="nav-number">2.</span> <span class="nav-text">[NOI2001]食物链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ4548-小奇的糖果"><span class="nav-number">3.</span> <span class="nav-text">BZOJ4548 小奇的糖果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1142B-Lynyrd-Skynyrd"><span class="nav-number">4.</span> <span class="nav-text">CF1142B Lynyrd Skynyrd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FJOI2015-火星商店问题"><span class="nav-number">5.</span> <span class="nav-text">[FJOI2015]火星商店问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF741D-Arpa’s-letter-marked-tree-and-Mehrdad’s-Dokhtar-kosh-paths"><span class="nav-number">6.</span> <span class="nav-text">CF741D Arpa’s letter-marked tree and Mehrdad’s Dokhtar-kosh paths</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NOI2016-区间"><span class="nav-number">7.</span> <span class="nav-text">[NOI2016]区间</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu2827-蚯蚓"><span class="nav-number">1.</span> <span class="nav-text">Luogu2827 蚯蚓</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NOI2001-食物链"><span class="nav-number">2.</span> <span class="nav-text">[NOI2001]食物链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BZOJ4548-小奇的糖果"><span class="nav-number">3.</span> <span class="nav-text">BZOJ4548 小奇的糖果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1142B-Lynyrd-Skynyrd"><span class="nav-number">4.</span> <span class="nav-text">CF1142B Lynyrd Skynyrd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FJOI2015-火星商店问题"><span class="nav-number">5.</span> <span class="nav-text">[FJOI2015]火星商店问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF741D-Arpa’s-letter-marked-tree-and-Mehrdad’s-Dokhtar-kosh-paths"><span class="nav-number">6.</span> <span class="nav-text">CF741D Arpa’s letter-marked tree and Mehrdad’s Dokhtar-kosh paths</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NOI2016-区间"><span class="nav-number">7.</span> <span class="nav-text">[NOI2016]区间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF10D-LCIS"><span class="nav-number">8.</span> <span class="nav-text">CF10D LCIS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国家集训队-middle"><span class="nav-number">9.</span> <span class="nav-text">[国家集训队]middle</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
