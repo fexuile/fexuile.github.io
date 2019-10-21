@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2019/10/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+    <title>CSP2019前的退役日志1</title>
+    <url>/2019/10/21/CSP2019%E5%89%8D%E7%9A%84%E9%80%80%E5%BD%B9%E6%97%A5%E5%BF%971/</url>
+    <content><![CDATA[<h2 id="Luogu2827-蚯蚓"><a href="#Luogu2827-蚯蚓" class="headerlink" title="Luogu2827 蚯蚓"></a>Luogu2827 蚯蚓</h2><p>考虑所有的增加相当于这个减小，然后因为割出来的长度和原长的单调性相关，所以直接拿3个队列替换优先队列使用即可。</p>
+<h2 id="NOI2001-食物链"><a href="#NOI2001-食物链" class="headerlink" title="[NOI2001]食物链"></a>[NOI2001]食物链</h2><p>考虑维护三个并查集，分别表示类别，吃我的和我吃的，然后根据信息合并即可。</p>
+<h2 id="BZOJ4548-小奇的糖果"><a href="#BZOJ4548-小奇的糖果" class="headerlink" title="BZOJ4548 小奇的糖果"></a>BZOJ4548 小奇的糖果</h2><p>我们可以钦定一种颜色不选，那么我们把它们按照$x$轴排序，剩下的就是相邻两个和删除最上面的，用双端链表+树状数组维护即可。</p>
+<a id="more"></a>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h2 id="CF1142B-Lynyrd-Skynyrd"><a href="#CF1142B-Lynyrd-Skynyrd" class="headerlink" title="CF1142B Lynyrd Skynyrd"></a>CF1142B Lynyrd Skynyrd</h2><p>很显然可以倍增，只需要处理在后面的循环位移的位置，然后直接倍增即可。</p>
+<h2 id="FJOI2015-火星商店问题"><a href="#FJOI2015-火星商店问题" class="headerlink" title="[FJOI2015]火星商店问题"></a>[FJOI2015]火星商店问题</h2><p><del>看到第一眼就知道可以线段树套可持久化Trie，因为你是两个区间的操作</del></p>
+<p>你考虑每一个询问都是一段区间对吧，然后我们可以线段树分治，在这个基础上考虑怎么算贡献？可持久化Trie即可。</p>
+<h2 id="CF741D-Arpa’s-letter-marked-tree-and-Mehrdad’s-Dokhtar-kosh-paths"><a href="#CF741D-Arpa’s-letter-marked-tree-and-Mehrdad’s-Dokhtar-kosh-paths" class="headerlink" title="CF741D Arpa’s letter-marked tree and Mehrdad’s Dokhtar-kosh paths"></a>CF741D Arpa’s letter-marked tree and Mehrdad’s Dokhtar-kosh paths</h2><p>dsu on tree的板子题</p>
+<p>直接用个桶维护即可。</p>
+<h2 id="NOI2016-区间"><a href="#NOI2016-区间" class="headerlink" title="[NOI2016]区间"></a>[NOI2016]区间</h2><p>考虑按照长度排序，然后依次插入并且删除，这样子得到的就是最大的，至于查是否有超过$m$被覆盖，直接用线段树即可。</p>
 ]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
+      <tags>
+        <tag>计划</tag>
+      </tags>
   </entry>
 </search>
