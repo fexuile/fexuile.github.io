@@ -32,6 +32,8 @@
 <h2 id="CF960F-Pathwalks"><a href="#CF960F-Pathwalks" class="headerlink" title="CF960F Pathwalks"></a>CF960F Pathwalks</h2><p>令$f_{i,j}$表示到了$i$点，上一次的路径值为$j$的最长路长度，用$map$逐边转移即可。</p>
 <h2 id="AtCoder-Grand-Contest-031-A-Colorful-Subsequence"><a href="#AtCoder-Grand-Contest-031-A-Colorful-Subsequence" class="headerlink" title="AtCoder Grand Contest 031 A - Colorful Subsequence"></a>AtCoder Grand Contest 031 A - Colorful Subsequence</h2><p>简单题，考虑这个子序列中一种颜色要么出现要么不出现然后乘法原理即可。</p>
 <h2 id="AtCoder-Grand-Contest-031-B-Reversi"><a href="#AtCoder-Grand-Contest-031-B-Reversi" class="headerlink" title="AtCoder Grand Contest 031 B - Reversi"></a>AtCoder Grand Contest 031 B - Reversi</h2><p>其实我也没想到这题这么就过了，<del>可能OI这门竞赛本来就有这样子的侥幸吧，谁运气好谁就赢了。</del>，而且我也不是很懂为什么官方题解写了那么多东西。。。<br>设$f_i$表示将前$i$个数转换得到的不同序列个数，通过这个颜色上一次出现的位置与$i-1$转移即可。</p>
+<h2 id="AtCoder-Grand-Contest-031-C-Differ-by-1-Bit"><a href="#AtCoder-Grand-Contest-031-C-Differ-by-1-Bit" class="headerlink" title="AtCoder Grand Contest 031 C - Differ by 1 Bit"></a>AtCoder Grand Contest 031 C - Differ by 1 Bit</h2><p>神仙题,考虑所有的构造方案等价于开头是$0$,结尾是$A\oplus B$的方案,所以如果$A\oplus B$的1的个数是偶数显然无解.<br>接着考虑怎么构造一组解?我们可以随便选择一个二进制位然后将他们分成两种,分别遍历然后在遍历的过程中重复该操作即可.</p>
+<h2 id="AtCoder-Grand-Contest-029-B-Powers-of-two"><a href="#AtCoder-Grand-Contest-029-B-Powers-of-two" class="headerlink" title="AtCoder Grand Contest 029 B - Powers of two"></a>AtCoder Grand Contest 029 B - Powers of two</h2><p>简单题,用$multiset$维护一下数字,对于每一个找最近的匹配即可(从小到大),注意一些小细节.</p>
 ]]></content>
       <tags>
         <tag>退役前的做题记录</tag>
