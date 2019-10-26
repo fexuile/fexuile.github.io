@@ -51,14 +51,14 @@
 </script>
 
   <meta name="description" content="公告2019.10.23~2019.11.1 目标:81+ 感觉每道题目都写题解太麻烦但又不能不写谁是鸽王zsy，所以干脆写蒯一份长达半句话到多句话题解记录一下，当然如果题目特别套路或者特别神仙还是会新开一篇Blog的。 突然发现鸽子10天做了81道题目，那我10天要做___。">
-<meta name="keywords" content="退役前的做题记录">
+<meta name="keywords" content="lists">
 <meta property="og:type" content="article">
 <meta property="og:title" content="退役前的做题记录1.0 ">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;22&#x2F;%E9%80%80%E5%BD%B9%E5%89%8D%E7%9A%84%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%951-0&#x2F;index.html">
 <meta property="og:site_name" content="fexuileのBlog">
 <meta property="og:description" content="公告2019.10.23~2019.11.1 目标:81+ 感觉每道题目都写题解太麻烦但又不能不写谁是鸽王zsy，所以干脆写蒯一份长达半句话到多句话题解记录一下，当然如果题目特别套路或者特别神仙还是会新开一篇Blog的。 突然发现鸽子10天做了81道题目，那我10天要做___。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-24T02:59:25.817Z">
+<meta property="og:updated_time" content="2019-10-26T09:11:29.830Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/10/22/%E9%80%80%E5%BD%B9%E5%89%8D%E7%9A%84%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%951-0/">
@@ -257,7 +257,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-24 10:59:25" itemprop="dateModified" datetime="2019-10-24T10:59:25+08:00">2019-10-24</time>
+                <time title="修改时间：2019-10-26 17:11:29" itemprop="dateModified" datetime="2019-10-26T17:11:29+08:00">2019-10-26</time>
               </span>
 
           
@@ -286,6 +286,23 @@
 <h2 id="AtCoder-Grand-Contest-031-B-Reversi"><a href="#AtCoder-Grand-Contest-031-B-Reversi" class="headerlink" title="AtCoder Grand Contest 031 B - Reversi"></a>AtCoder Grand Contest 031 B - Reversi</h2><p>其实我也没想到这题这么就过了，<del>可能OI这门竞赛本来就有这样子的侥幸吧，谁运气好谁就赢了。</del>，而且我也不是很懂为什么官方题解写了那么多东西。。。<br>设$f_i$表示将前$i$个数转换得到的不同序列个数，通过这个颜色上一次出现的位置与$i-1$转移即可。</p>
 <h2 id="AtCoder-Grand-Contest-031-C-Differ-by-1-Bit"><a href="#AtCoder-Grand-Contest-031-C-Differ-by-1-Bit" class="headerlink" title="AtCoder Grand Contest 031 C - Differ by 1 Bit"></a>AtCoder Grand Contest 031 C - Differ by 1 Bit</h2><p>神仙题,考虑所有的构造方案等价于开头是$0$,结尾是$A\oplus B$的方案,所以如果$A\oplus B$的1的个数是偶数显然无解.<br>接着考虑怎么构造一组解?我们可以随便选择一个二进制位然后将他们分成两种,分别遍历然后在遍历的过程中重复该操作即可.</p>
 <h2 id="AtCoder-Grand-Contest-029-B-Powers-of-two"><a href="#AtCoder-Grand-Contest-029-B-Powers-of-two" class="headerlink" title="AtCoder Grand Contest 029 B - Powers of two"></a>AtCoder Grand Contest 029 B - Powers of two</h2><p>简单题,用$multiset$维护一下数字,对于每一个找最近的匹配即可(从小到大),注意一些小细节.</p>
+<h2 id="CF140C-New-Year-Snowmen"><a href="#CF140C-New-Year-Snowmen" class="headerlink" title="CF140C - New Year Snowmen"></a>CF140C - New Year Snowmen</h2><p>直接维护出现次数最多的每一次挑3个出来即可.</p>
+<h2 id="叠罗汉"><a href="#叠罗汉" class="headerlink" title="叠罗汉"></a>叠罗汉</h2><p>考虑每一个罗汉的贡献,然后对于相邻的两个罗汉交换之后带来的影响列出不等式组,最后按照$a_i+b_i$从大到小排序后能选就选即可.</p>
+<h2 id="CF286C-Main-Sequence"><a href="#CF286C-Main-Sequence" class="headerlink" title="CF286C Main Sequence"></a>CF286C Main Sequence</h2><p>显然这是一个括号序列问题,考虑从右往左扫,这样可以忽略钦定负数的影响,直接判断.</p>
+<h2 id="Luogu1315-观光公交"><a href="#Luogu1315-观光公交" class="headerlink" title="Luogu1315 观光公交"></a>Luogu1315 观光公交</h2><p>神仙题(不会).很显然我们要找到影响人数最多的路线$-1$,这样子才最优,那么我们每次暴力找,重复$k$次即可.复杂度分析不会,但是不满.<del>这道题目告诉我们在<code>CSP</code>考场上,随便写暴力说不定就<code>AC</code>了.</del></p>
+<h2 id="JSOI2007-建筑抢修"><a href="#JSOI2007-建筑抢修" class="headerlink" title="[JSOI2007]建筑抢修"></a>[JSOI2007]建筑抢修</h2><p>很显然$deadline$靠前的一定要先完成,这个时候可以发现我们增加一个反悔操作即可.</p>
+<h2 id="HEOI2015-兔子与樱花"><a href="#HEOI2015-兔子与樱花" class="headerlink" title="[HEOI2015]兔子与樱花"></a>[HEOI2015]兔子与樱花</h2><p>简单题,每一个点的删除代价是$c_i+son_i$,每一次选最少的合并即可.</p>
+<h2 id="CF521D-Shop"><a href="#CF521D-Shop" class="headerlink" title="CF521D - Shop"></a>CF521D - Shop</h2><p>首先我们不难发现,操作的顺序一定是先修改,再加,最后乘起来.接着稍微用用脑子你就知道这样两个事实:</p>
+<ul>
+<li>加法和乘法等价</li>
+<li>修改肯定只会修改一次,并且是最大的.<br>然后我们贪心的做,每一次选择成绩最大的即可.</li>
+</ul>
+<h2 id="CF161B-Discounts"><a href="#CF161B-Discounts" class="headerlink" title="CF161B - Discounts"></a>CF161B - Discounts</h2><p>很显然列一下式子发现选择一个凳子一组一定不会更劣,直接模拟即可.</p>
+<h2 id="CF140C-New-Year-Snowmen-1"><a href="#CF140C-New-Year-Snowmen-1" class="headerlink" title="CF140C - New Year Snowmen"></a>CF140C - New Year Snowmen</h2><p>简单题,没啥好说的.</p>
+<h2 id="「JOI-2019-Final」独特的城市"><a href="#「JOI-2019-Final」独特的城市" class="headerlink" title="「JOI 2019 Final」独特的城市"></a>「JOI 2019 Final」独特的城市</h2><p><a href="../../../../2019/10/26/JOI-2019-Final/">看这里</a></p>
+<h2 id="「JOI-2019-Final」硬币收藏"><a href="#「JOI-2019-Final」硬币收藏" class="headerlink" title="「JOI 2019 Final」硬币收藏"></a>「JOI 2019 Final」硬币收藏</h2><p><a href="../../../../2019/10/26/JOI-2019-Final/">看这里</a></p>
+<h2 id="「JOI-2019-Final」画展"><a href="#「JOI-2019-Final」画展" class="headerlink" title="「JOI 2019 Final」画展"></a>「JOI 2019 Final」画展</h2><p><a href="../../../../2019/10/26/JOI-2019-Final/">看这里</a></p>
+<h2 id="CTSC2007-数据备份Backup"><a href="#CTSC2007-数据备份Backup" class="headerlink" title="[CTSC2007]数据备份Backup"></a>[CTSC2007]数据备份Backup</h2><p>凸优化模板题.</p>
 
     </div>
 
@@ -295,7 +312,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E9%80%80%E5%BD%B9%E5%89%8D%E7%9A%84%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="tag"># 退役前的做题记录</a>
+              <a href="/tags/lists/" rel="tag"># lists</a>
           </div>
 
         
@@ -352,7 +369,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#公告"><span class="nav-number">1.</span> <span class="nav-text">公告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heoi2014-南园满地堆轻絮"><span class="nav-number">2.</span> <span class="nav-text">[Heoi2014]南园满地堆轻絮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heoi2014-平衡"><span class="nav-number">3.</span> <span class="nav-text">[Heoi2014]平衡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JLOI2015-战争调度"><span class="nav-number">4.</span> <span class="nav-text">[JLOI2015]战争调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POI2016-Nim-z-utrudnieniem"><span class="nav-number">5.</span> <span class="nav-text">[POI2016] Nim z utrudnieniem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#飞扬的小鸟"><span class="nav-number">6.</span> <span class="nav-text">飞扬的小鸟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF960F-Pathwalks"><span class="nav-number">7.</span> <span class="nav-text">CF960F Pathwalks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-031-A-Colorful-Subsequence"><span class="nav-number">8.</span> <span class="nav-text">AtCoder Grand Contest 031 A - Colorful Subsequence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-031-B-Reversi"><span class="nav-number">9.</span> <span class="nav-text">AtCoder Grand Contest 031 B - Reversi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-031-C-Differ-by-1-Bit"><span class="nav-number">10.</span> <span class="nav-text">AtCoder Grand Contest 031 C - Differ by 1 Bit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-029-B-Powers-of-two"><span class="nav-number">11.</span> <span class="nav-text">AtCoder Grand Contest 029 B - Powers of two</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#公告"><span class="nav-number">1.</span> <span class="nav-text">公告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heoi2014-南园满地堆轻絮"><span class="nav-number">2.</span> <span class="nav-text">[Heoi2014]南园满地堆轻絮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heoi2014-平衡"><span class="nav-number">3.</span> <span class="nav-text">[Heoi2014]平衡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JLOI2015-战争调度"><span class="nav-number">4.</span> <span class="nav-text">[JLOI2015]战争调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POI2016-Nim-z-utrudnieniem"><span class="nav-number">5.</span> <span class="nav-text">[POI2016] Nim z utrudnieniem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#飞扬的小鸟"><span class="nav-number">6.</span> <span class="nav-text">飞扬的小鸟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF960F-Pathwalks"><span class="nav-number">7.</span> <span class="nav-text">CF960F Pathwalks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-031-A-Colorful-Subsequence"><span class="nav-number">8.</span> <span class="nav-text">AtCoder Grand Contest 031 A - Colorful Subsequence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-031-B-Reversi"><span class="nav-number">9.</span> <span class="nav-text">AtCoder Grand Contest 031 B - Reversi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-031-C-Differ-by-1-Bit"><span class="nav-number">10.</span> <span class="nav-text">AtCoder Grand Contest 031 C - Differ by 1 Bit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AtCoder-Grand-Contest-029-B-Powers-of-two"><span class="nav-number">11.</span> <span class="nav-text">AtCoder Grand Contest 029 B - Powers of two</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF140C-New-Year-Snowmen"><span class="nav-number">12.</span> <span class="nav-text">CF140C - New Year Snowmen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#叠罗汉"><span class="nav-number">13.</span> <span class="nav-text">叠罗汉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF286C-Main-Sequence"><span class="nav-number">14.</span> <span class="nav-text">CF286C Main Sequence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu1315-观光公交"><span class="nav-number">15.</span> <span class="nav-text">Luogu1315 观光公交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSOI2007-建筑抢修"><span class="nav-number">16.</span> <span class="nav-text">[JSOI2007]建筑抢修</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HEOI2015-兔子与樱花"><span class="nav-number">17.</span> <span class="nav-text">[HEOI2015]兔子与樱花</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF521D-Shop"><span class="nav-number">18.</span> <span class="nav-text">CF521D - Shop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF161B-Discounts"><span class="nav-number">19.</span> <span class="nav-text">CF161B - Discounts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF140C-New-Year-Snowmen-1"><span class="nav-number">20.</span> <span class="nav-text">CF140C - New Year Snowmen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「JOI-2019-Final」独特的城市"><span class="nav-number">21.</span> <span class="nav-text">「JOI 2019 Final」独特的城市</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「JOI-2019-Final」硬币收藏"><span class="nav-number">22.</span> <span class="nav-text">「JOI 2019 Final」硬币收藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「JOI-2019-Final」画展"><span class="nav-number">23.</span> <span class="nav-text">「JOI 2019 Final」画展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CTSC2007-数据备份Backup"><span class="nav-number">24.</span> <span class="nav-text">[CTSC2007]数据备份Backup</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,7 +385,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -381,7 +398,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

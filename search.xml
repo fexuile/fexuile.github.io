@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JOI 2019 Final</title>
+    <url>/2019/10/26/JOI-2019-Final/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>两次考试直接爆炸,然后GG了<del>还被$_tham$Diss了..</del></p>
+<a id="more"></a>
+
+<h2 id="「JOI-2019-Final」勇者比太郎"><a href="#「JOI-2019-Final」勇者比太郎" class="headerlink" title="「JOI 2019 Final」勇者比太郎"></a>「JOI 2019 Final」勇者比太郎</h2><p>参见10.22考试题解.</p>
+<h2 id="「JOI-2019-Final」画展"><a href="#「JOI-2019-Final」画展" class="headerlink" title="「JOI 2019 Final」画展"></a>「JOI 2019 Final」画展</h2><p>贪心题,选出来的画框一定是最大的几个,那么我们可以按照$v$排序倒着取,贪心即可.</p>
+<h2 id="「JOI-2019-Final」有趣的家庭菜园-3"><a href="#「JOI-2019-Final」有趣的家庭菜园-3" class="headerlink" title="「JOI 2019 Final」有趣的家庭菜园 3"></a>「JOI 2019 Final」有趣的家庭菜园 3</h2><p>参见10.22考试题解.</p>
+<h2 id="「JOI-2019-Final」硬币收藏"><a href="#「JOI-2019-Final」硬币收藏" class="headerlink" title="「JOI 2019 Final」硬币收藏"></a>「JOI 2019 Final」硬币收藏</h2><p>首先我们可以把每一个硬币移动到最近的位置,然后按照列一列一列模拟的取即可.</p>
+<h2 id="「JOI-2019-Final」独特的城市"><a href="#「JOI-2019-Final」独特的城市" class="headerlink" title="「JOI 2019 Final」独特的城市"></a>「JOI 2019 Final」独特的城市</h2><p>神仙题.<del>想了一中午才想明白.</del><br>首先距离这个点最远的点一定是直径的一部分,那么你把直径抠出来,考虑每一个点对它有贡献的点是啥.<br>仔细思考一波,发现就是到一个直径端点上的点才有可能有贡献.<br>这个时候可以用栈记录下根节点到这个节点上有贡献的点.<br>考虑对于当前点$u$,如果一个点不满足应该是怎么样?</p>
+<ol>
+<li>如果它在它父亲的最长儿子链,那么要把其他的儿子链的最大值搞出来,然后两点距离要大于其他儿子最长链的长度.</li>
+<li>不在长儿子上面,那么就和长儿子比较即可.</li>
+</ol>
+<p>此时我们发现,要先将长儿子对应的子树遍历完再遍历轻儿子,因为有可能你遍历轻儿子的时候把长儿子有可能有贡献的点弹掉了.</p>
+]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>JOI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>咕咕列表</title>
+    <url>/2019/10/25/%E5%92%95%E5%92%95%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><del>退役选手没有记忆.</del></p>
+<a id="more"></a>
+
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
+<li><input disabled="" type="checkbox"> 斜率优化</li>
+<li><input disabled="" type="checkbox"> 决策单调性</li>
+<li><input disabled="" type="checkbox"> 凸优化dp(wqs二分)</li>
+</ul>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ul>
+<li><input disabled="" type="checkbox"> Loj观光公交加强版</li>
+<li><input disabled="" type="checkbox"> BZOJ1150</li>
+</ul>
+<h2 id="比赛"><a href="#比赛" class="headerlink" title="比赛"></a>比赛</h2><ul>
+<li><input disabled="" type="checkbox"> Codeforces Round 596 (based on Technocup 2020 - Elimination Round 2)</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>lists</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>dp题目合集</title>
+    <url>/2019/10/25/dp%E9%A2%98%E7%9B%AE%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<p>csp2019dp复习.</p>
+<a id="more"></a>
+
+<h2 id="UVA10559-Blocks"><a href="#UVA10559-Blocks" class="headerlink" title="UVA10559 Blocks"></a>UVA10559 Blocks</h2><p>神仙题,可以很显然的看出是区间$dp$,但是二维的状态无法考虑消除中间一段的贡献再合并两边,所以多设一维状态表示与$r$颜色相同的后面有多少个消除了(在原序列可以不连续,但是最后消除中要连续),直接转移即可.</p>
+<h2 id="NOI2009-二叉查找树"><a href="#NOI2009-二叉查找树" class="headerlink" title="[NOI2009]二叉查找树"></a>[NOI2009]二叉查找树</h2><p>不难看出题目要你构造的就是一棵$Treap$,这同时也是一棵二叉查找树,所以中序遍历是固定的,所以我们可以在中序遍历上$dp$,每一次选取一个为根然后合并左右最后深度全部+1即可.</p>
+<h2 id="CF10D-LCIS"><a href="#CF10D-LCIS" class="headerlink" title="CF10D LCIS"></a>CF10D LCIS</h2><p>奇怪的题目…序列$dp$,转移位置直接每一次记下即可.</p>
+<h2 id="CF55D-Beautiful-numbers"><a href="#CF55D-Beautiful-numbers" class="headerlink" title="CF55D Beautiful numbers"></a>CF55D Beautiful numbers</h2><p>数位$dp$入门题,$dfs$即可,多记一位$0/1$表示有没有达到上限.</p>
+<h2 id="HAOI2008-硬币购物"><a href="#HAOI2008-硬币购物" class="headerlink" title="[HAOI2008]硬币购物"></a>[HAOI2008]硬币购物</h2><p>简单题,直接$dp$完全背包出来,最后容斥即可.</p>
+<h2 id="HNOI2012-集合选数"><a href="#HNOI2012-集合选数" class="headerlink" title="[HNOI2012]集合选数"></a>[HNOI2012]集合选数</h2><p>套路题,可以构造一个向右$\times 2$,向下$\times 3$的矩阵,然后状压即可,复杂度是$log_3n$和$log_2n$选一个状压的复杂度.</p>
+<h2 id="Luogu3959-宝藏"><a href="#Luogu3959-宝藏" class="headerlink" title="Luogu3959 宝藏"></a>Luogu3959 宝藏</h2><p>状压$dp$,枚举起始点即可.(据说会有一些奇怪的小问题)</p>
+<h2 id="HNOI2008-玩具装箱TOY"><a href="#HNOI2008-玩具装箱TOY" class="headerlink" title="[HNOI2008]玩具装箱TOY"></a>[HNOI2008]玩具装箱TOY</h2><p>斜率优化模板题,后续会开一个斜率优化的总结.</p>
+<h2 id="JSOI2011-柠檬"><a href="#JSOI2011-柠檬" class="headerlink" title="[JSOI2011]柠檬"></a>[JSOI2011]柠檬</h2><p>同上</p>
+<h2 id="Luogu1850-换教室"><a href="#Luogu1850-换教室" class="headerlink" title="Luogu1850 换教室"></a>Luogu1850 换教室</h2><p>概率$dp$模板题,设$f_{i,j,0/1}$表示前$i$课,申请了$j$次,上一次申请成功与否,转移即可.</p>
+<h2 id="Luogu1941-飞扬的小鸟"><a href="#Luogu1941-飞扬的小鸟" class="headerlink" title="Luogu1941 飞扬的小鸟"></a>Luogu1941 飞扬的小鸟</h2><p>看退役前的做题记录1.0.</p>
+<h2 id="HNOI-AHOI2018-道路"><a href="#HNOI-AHOI2018-道路" class="headerlink" title="[HNOI/AHOI2018]道路"></a>[HNOI/AHOI2018]道路</h2><p>$dp$就思维上是入门题,但是空间开不下,注意每一个点相关的点不多,直接存一个栈记录即可.</p>
+<h2 id="APIO2014-连珠线"><a href="#APIO2014-连珠线" class="headerlink" title="[APIO2014]连珠线"></a>[APIO2014]连珠线</h2><p>神仙题,很显然可以枚举根节点,这样子你的转移方式就是唯一的,然后设$f_{u,0/1}$表示$u$为根的子树,$u$作为/不作为中间节点的最大值.总复杂度$O(n^2)$的.<br>接着考虑每一次只有儿子之间的转移,可以换根$dp$,具体来说就是设$dp_{u,0/1,j}$表示$f_{u,0/1}$不考虑$j$这个儿子的答案,存下最大值和次大值转移即可.</p>
+<h2 id="ZJOI2010-基站选址"><a href="#ZJOI2010-基站选址" class="headerlink" title="[ZJOI2010]基站选址"></a>[ZJOI2010]基站选址</h2><p>线段树优化$dp$.</p>
+<h2 id="AT2292-Division-into-Two"><a href="#AT2292-Division-into-Two" class="headerlink" title="AT2292 Division into Two"></a>AT2292 Division into Two</h2><p><a href="../../../../2019/10/22/AGC009C-Division-into-Two/">看这里</a></p>
+<h2 id="AT2294-Eternal-Average"><a href="#AT2294-Eternal-Average" class="headerlink" title="AT2294 Eternal Average"></a>AT2294 Eternal Average</h2><p><a href="../../../../2019/10/22/AGC009E-Eternal-Average/">看这里</a></p>
+<h2 id="NOI2009-诗人小G"><a href="#NOI2009-诗人小G" class="headerlink" title="[NOI2009]诗人小G"></a>[NOI2009]诗人小G</h2><p>决策单调性优化$dp$,后面会开一篇总结.</p>
+<h2 id="CF1039D-You-Are-Given-a-Tree"><a href="#CF1039D-You-Are-Given-a-Tree" class="headerlink" title="CF1039D You Are Given a Tree"></a>CF1039D You Are Given a Tree</h2><p>首先我们注意对于一个$mid$而言,我们可以求出它的答案,那么对于$mid$左边的有一段区间,右边的也有一段区间,按照整体二分的那套理论做就行了.</p>
+<h2 id="CF960F-Pathwalks"><a href="#CF960F-Pathwalks" class="headerlink" title="CF960F Pathwalks"></a>CF960F Pathwalks</h2><p>看退役前的做题记录1.0.</p>
+<h2 id="「POI2016」Nim-z-utrudnieniem"><a href="#「POI2016」Nim-z-utrudnieniem" class="headerlink" title="「POI2016」Nim z utrudnieniem"></a>「POI2016」Nim z utrudnieniem</h2><p>看退役前的做题记录1.0.</p>
+<h2 id="「BZOJ4182」Shopping"><a href="#「BZOJ4182」Shopping" class="headerlink" title="「BZOJ4182」Shopping"></a>「BZOJ4182」Shopping</h2><p>神题,首先可以设$f_{u,j}$做一个树型依赖背包,因为选出来的点一定在连通块内.<br>接着考虑每一次都是一个子树,就可以$dsu on tree$最后求答案即可.</p>
+<h2 id="「PA2014」Druzyny"><a href="#「PA2014」Druzyny" class="headerlink" title="「PA2014」Druzyny"></a>「PA2014」Druzyny</h2><p>咕咕咕</p>
+<h2 id="「AMPPZ2014」The-Prices"><a href="#「AMPPZ2014」The-Prices" class="headerlink" title="「AMPPZ2014」The Prices"></a>「AMPPZ2014」The Prices</h2><p>状压入门题…</p>
+]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>dp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AGC009E Eternal Average</title>
     <url>/2019/10/22/AGC009E-Eternal-Average/</url>
     <content><![CDATA[<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://agc009.contest.atcoder.jp/tasks/agc009_e" target="_blank" rel="noopener">Atcoder</a></p>
@@ -34,9 +118,26 @@
 <h2 id="AtCoder-Grand-Contest-031-B-Reversi"><a href="#AtCoder-Grand-Contest-031-B-Reversi" class="headerlink" title="AtCoder Grand Contest 031 B - Reversi"></a>AtCoder Grand Contest 031 B - Reversi</h2><p>其实我也没想到这题这么就过了，<del>可能OI这门竞赛本来就有这样子的侥幸吧，谁运气好谁就赢了。</del>，而且我也不是很懂为什么官方题解写了那么多东西。。。<br>设$f_i$表示将前$i$个数转换得到的不同序列个数，通过这个颜色上一次出现的位置与$i-1$转移即可。</p>
 <h2 id="AtCoder-Grand-Contest-031-C-Differ-by-1-Bit"><a href="#AtCoder-Grand-Contest-031-C-Differ-by-1-Bit" class="headerlink" title="AtCoder Grand Contest 031 C - Differ by 1 Bit"></a>AtCoder Grand Contest 031 C - Differ by 1 Bit</h2><p>神仙题,考虑所有的构造方案等价于开头是$0$,结尾是$A\oplus B$的方案,所以如果$A\oplus B$的1的个数是偶数显然无解.<br>接着考虑怎么构造一组解?我们可以随便选择一个二进制位然后将他们分成两种,分别遍历然后在遍历的过程中重复该操作即可.</p>
 <h2 id="AtCoder-Grand-Contest-029-B-Powers-of-two"><a href="#AtCoder-Grand-Contest-029-B-Powers-of-two" class="headerlink" title="AtCoder Grand Contest 029 B - Powers of two"></a>AtCoder Grand Contest 029 B - Powers of two</h2><p>简单题,用$multiset$维护一下数字,对于每一个找最近的匹配即可(从小到大),注意一些小细节.</p>
+<h2 id="CF140C-New-Year-Snowmen"><a href="#CF140C-New-Year-Snowmen" class="headerlink" title="CF140C - New Year Snowmen"></a>CF140C - New Year Snowmen</h2><p>直接维护出现次数最多的每一次挑3个出来即可.</p>
+<h2 id="叠罗汉"><a href="#叠罗汉" class="headerlink" title="叠罗汉"></a>叠罗汉</h2><p>考虑每一个罗汉的贡献,然后对于相邻的两个罗汉交换之后带来的影响列出不等式组,最后按照$a_i+b_i$从大到小排序后能选就选即可.</p>
+<h2 id="CF286C-Main-Sequence"><a href="#CF286C-Main-Sequence" class="headerlink" title="CF286C Main Sequence"></a>CF286C Main Sequence</h2><p>显然这是一个括号序列问题,考虑从右往左扫,这样可以忽略钦定负数的影响,直接判断.</p>
+<h2 id="Luogu1315-观光公交"><a href="#Luogu1315-观光公交" class="headerlink" title="Luogu1315 观光公交"></a>Luogu1315 观光公交</h2><p>神仙题(不会).很显然我们要找到影响人数最多的路线$-1$,这样子才最优,那么我们每次暴力找,重复$k$次即可.复杂度分析不会,但是不满.<del>这道题目告诉我们在<code>CSP</code>考场上,随便写暴力说不定就<code>AC</code>了.</del></p>
+<h2 id="JSOI2007-建筑抢修"><a href="#JSOI2007-建筑抢修" class="headerlink" title="[JSOI2007]建筑抢修"></a>[JSOI2007]建筑抢修</h2><p>很显然$deadline$靠前的一定要先完成,这个时候可以发现我们增加一个反悔操作即可.</p>
+<h2 id="HEOI2015-兔子与樱花"><a href="#HEOI2015-兔子与樱花" class="headerlink" title="[HEOI2015]兔子与樱花"></a>[HEOI2015]兔子与樱花</h2><p>简单题,每一个点的删除代价是$c_i+son_i$,每一次选最少的合并即可.</p>
+<h2 id="CF521D-Shop"><a href="#CF521D-Shop" class="headerlink" title="CF521D - Shop"></a>CF521D - Shop</h2><p>首先我们不难发现,操作的顺序一定是先修改,再加,最后乘起来.接着稍微用用脑子你就知道这样两个事实:</p>
+<ul>
+<li>加法和乘法等价</li>
+<li>修改肯定只会修改一次,并且是最大的.<br>然后我们贪心的做,每一次选择成绩最大的即可.</li>
+</ul>
+<h2 id="CF161B-Discounts"><a href="#CF161B-Discounts" class="headerlink" title="CF161B - Discounts"></a>CF161B - Discounts</h2><p>很显然列一下式子发现选择一个凳子一组一定不会更劣,直接模拟即可.</p>
+<h2 id="CF140C-New-Year-Snowmen-1"><a href="#CF140C-New-Year-Snowmen-1" class="headerlink" title="CF140C - New Year Snowmen"></a>CF140C - New Year Snowmen</h2><p>简单题,没啥好说的.</p>
+<h2 id="「JOI-2019-Final」独特的城市"><a href="#「JOI-2019-Final」独特的城市" class="headerlink" title="「JOI 2019 Final」独特的城市"></a>「JOI 2019 Final」独特的城市</h2><p><a href="../../../../2019/10/26/JOI-2019-Final/">看这里</a></p>
+<h2 id="「JOI-2019-Final」硬币收藏"><a href="#「JOI-2019-Final」硬币收藏" class="headerlink" title="「JOI 2019 Final」硬币收藏"></a>「JOI 2019 Final」硬币收藏</h2><p><a href="../../../../2019/10/26/JOI-2019-Final/">看这里</a></p>
+<h2 id="「JOI-2019-Final」画展"><a href="#「JOI-2019-Final」画展" class="headerlink" title="「JOI 2019 Final」画展"></a>「JOI 2019 Final」画展</h2><p><a href="../../../../2019/10/26/JOI-2019-Final/">看这里</a></p>
+<h2 id="CTSC2007-数据备份Backup"><a href="#CTSC2007-数据备份Backup" class="headerlink" title="[CTSC2007]数据备份Backup"></a>[CTSC2007]数据备份Backup</h2><p>凸优化模板题.</p>
 ]]></content>
       <tags>
-        <tag>退役前的做题记录</tag>
+        <tag>lists</tag>
       </tags>
   </entry>
   <entry>
