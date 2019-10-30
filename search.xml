@@ -1,9 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>牛客CSP-S提高组赛前集训营 小w的魔术扑克</title>
+    <url>/2019/10/30/%E7%89%9B%E5%AE%A2CSP-S%E6%8F%90%E9%AB%98%E7%BB%84%E8%B5%9B%E5%89%8D%E9%9B%86%E8%AE%AD%E8%90%A5-%E5%B0%8Fw%E7%9A%84%E9%AD%94%E6%9C%AF%E6%89%91%E5%85%8B/</url>
+    <content><![CDATA[<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://ac.nowcoder.com/acm/contest/1100/C" target="_blank" rel="noopener">牛客</a></p>
+<a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>考虑可以把每张牌上的两个数字连边,如果连出来是一棵树,那么显然会有一个节点无法选择.<br>一个顺子不合法意味着这个顺子区间包含了一棵树,我们可以将每一棵树的对应的最小值和最大值记下来然后后缀最小值判断即可.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> REP(a,b,c) for(int a=b;a&lt;=c;a++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> file(a) freopen(a<span class="meta-string">".in"</span>,<span class="meta-string">"r"</span>,stdin);freopen(a<span class="meta-string">".out"</span>,<span class="meta-string">"w"</span>,stdout)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gi</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> f=<span class="number">1</span>,sum=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;<span class="string">'9'</span> || ch&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span> &amp;&amp; ch&lt;=<span class="string">'9'</span>)&#123;sum=(sum&lt;&lt;<span class="number">3</span>)+(sum&lt;&lt;<span class="number">1</span>)+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line">    <span class="keyword">return</span> f*sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> n,k,flag,vis[N],mx,mn,a,b,tot,s[N],cnt,num;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;G[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(vis[u])<span class="keyword">return</span>;</span><br><span class="line">    vis[u]=<span class="number">1</span>;num++;mx=max(mx,u);mn=min(mn,u);</span><br><span class="line">    <span class="keyword">if</span>(u&gt;n)mx=max(mx,u-n),mn=min(mn,u-n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> v:G[u])&#123;</span><br><span class="line">        cnt++;dfs(v);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">    freopen(<span class="string">"in.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    n=gi();k=gi();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a=gi(),b=gi();</span><br><span class="line">        G[a].push_back(b);G[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(s,<span class="number">63</span>,<span class="keyword">sizeof</span>(s));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])&#123;</span><br><span class="line">            cnt=<span class="number">0</span>;num=<span class="number">0</span>;mn=n+<span class="number">1</span>;mx=<span class="number">0</span>;</span><br><span class="line">            dfs(i);</span><br><span class="line">            <span class="keyword">if</span>(cnt==<span class="number">2</span>*(num<span class="number">-1</span>))s[mn]=mx;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">int</span> Q=gi();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i;i--)s[i]=min(s[i],s[i+<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">while</span>(Q--)&#123;</span><br><span class="line">        <span class="keyword">int</span> l=gi(),r=gi();</span><br><span class="line">        <span class="keyword">if</span>(s[l]&lt;=r)<span class="built_in">puts</span>(<span class="string">"No"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"Yes"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>I am a really vegetable chicken!</p>
+]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>斜率优化学习笔记</title>
+    <url>/2019/10/28/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>突然发现很多东西都不会了,或者是不是很懂了<del>这充分说明了自己学习知识点不动脑子</del>,重新学习一下.</p>
+<a id="more"></a>
+
+<h2 id="斜率优化定义"><a href="#斜率优化定义" class="headerlink" title="斜率优化定义"></a>斜率优化定义</h2><p>考虑如果一个$dp$的式子长成$f_i=\min f_j+a_i+a_j+a_ia_j$,那么我们一般可以斜率优化.</p>
+<h2 id="几何意义"><a href="#几何意义" class="headerlink" title="几何意义"></a>几何意义</h2><p><del>通过这个可以更好的理解斜率优化.</del><br>$f_i=f_j+a_i+a_j-a_ia_j \Longrightarrow f_j+a_j=a_ia_j+f_i-a_i$.<br>这个时候我们可以把$f_j+a_j$看做$y$,$a_i$看做$k$,$a_j$看做$x$,$f_i$看做$b$,$a_i$看做$\xi$,那么这个时候我们就把$dp$的式子变成了:<br>$y=kx+b$的形式,此时要最小化$b$的值,即截距.</p>
+<p>首先最小化截距我们可以看做是一条斜率为$k$的直线从最下方不断向上平移,碰到第一个点就是对应的决策点.<br>那么这个时候你就会很清楚的知道要维护的是上凸壳还是下凸壳了.<br>如果求最小值就是这条直线往上走,那么维护的就是下凸壳.<br>反之就是上凸壳.</p>
+<h2 id="求法"><a href="#求法" class="headerlink" title="求法"></a>求法</h2><p>你可以考虑一下不同决策点之间的关系,这个可以推出来斜率的求法.<br>此时维护的东西就很显然.</p>
+<h2 id="单调性"><a href="#单调性" class="headerlink" title="单调性"></a>单调性</h2><p><del>接下来的东西和单调性有关.</del><br>现在式子是$y=kx+b$.</p>
+<h3 id="x-单调"><a href="#x-单调" class="headerlink" title="$x$单调"></a>$x$单调</h3><p>$x$的单调性决定了凸壳的形状.具体一点你可以想象在笛卡尔坐标系里面的形状.<br>如果$y$单调,那么我们可以用单调队列维护.<br>否则可以二分栈,一样的效果,具体一点可以想象一个直线不断向下/上平移卡点.</p>
+<h3 id="x-不单调"><a href="#x-不单调" class="headerlink" title="$x$不单调"></a>$x$不单调</h3><p>有两种方法,一种是$cdq$分治,另一种是$Splay$动态维护凸壳.</p>
+<h4 id="动态维护凸壳"><a href="#动态维护凸壳" class="headerlink" title="动态维护凸壳"></a>动态维护凸壳</h4><p>动态维护凸壳大致就是找到这个点的位置然后把两侧不合法的点全部删除.</p>
+<h4 id="cdq分治"><a href="#cdq分治" class="headerlink" title="cdq分治"></a>cdq分治</h4><p>考虑可以对于每一个点维护一个凸包,然后每一次合并左边的,右边的二分即可.</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> HNOI2008 玩具装箱</li>
+<li><input checked="" disabled="" type="checkbox"> APIO2010 特别行动队</li>
+<li><input checked="" disabled="" type="checkbox"> [SDOI2012]任务安排 <del>P.S:这题卡精度,要把除法转换成乘法</del></li>
+<li><input checked="" disabled="" type="checkbox"> [NOI2007]货币兑换Cash<del>P.S:这题卡精度,要到loj交</del></li>
+</ul>
+<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>还可以用李超树维护斜率,这里不再多说,但是李超树可以完成以上所有任务.<br>未完待续.</p>
+]]></content>
+      <categories>
+        <category>Summary</category>
+      </categories>
+      <tags>
+        <tag>dp</tag>
+        <tag>slope</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>贪心题目合集</title>
+    <url>/2019/10/28/%E8%B4%AA%E5%BF%83%E9%A2%98%E7%9B%AE%E5%90%88%E9%9B%86/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>题目又没做完…但是这里的题解会有贪心正确性的证明.jpg<del>Flag</del></p>
+<a id="more"></a>
+
+<h2 id="CF140C-New-Year-Snowmen"><a href="#CF140C-New-Year-Snowmen" class="headerlink" title="CF140C New Year Snowmen"></a>CF140C New Year Snowmen</h2><p>每次挑选最多的3个出来.<br>证明:</p>
+<blockquote>
+<p>如果最多的都不能够满足可以拼凑,那么比他小的肯定也不行.</p>
+</blockquote>
+<h2 id="CF161B-Discounts"><a href="#CF161B-Discounts" class="headerlink" title="CF161B Discounts"></a>CF161B Discounts</h2><p>把所有的凳子单独放一定最优,然后剩下的放在一起即可.<br>证明:</p>
+<blockquote>
+<p>令$a$为凳子的价钱,$b$为其他的价钱.<br>两个放在一起的代价为$max(a,b)+\frac{min(a,b)}{2}$<br>分开的代价是$\frac{a}{2}+b$.<br>无论如何都有$\frac{a}{2}+b \le \frac{min(a,b)}{2}+max(a,b)$<br>分类讨论证明即可.</p>
+</blockquote>
+<h2 id="叠罗汉"><a href="#叠罗汉" class="headerlink" title="叠罗汉"></a>叠罗汉</h2><p>考虑每一个罗汉的贡献,然后对于相邻的两个罗汉交换之后带来的影响列出不等式组,最后按照$a_i+b_i$从大到小排序后能选就选即可.<br>证明:</p>
+<blockquote>
+<p>现在有两个罗汉$i$,$j$,令$i$之前的体重为$w$,则:<br>如果$i$在$j$前面,<br>$$<br>\begin{cases}<br>w \ge b_i \newline<br>w \ge b_j-a_i<br>\end{cases}<br>$$<br>如果$i$在$j$后面<br>$$<br>\begin{cases}<br>w \ge b_j \newline<br>w \ge b_i-a_j<br>\end{cases}<br>$$<br>然后你分别按照这个东西排序即可,这个时候不难发现其实两个取$min$的大小就是$a_i+b_i$比较的大小.</p>
+</blockquote>
+<h2 id="JSOI2007-建筑抢修"><a href="#JSOI2007-建筑抢修" class="headerlink" title="[JSOI2007]建筑抢修"></a>[JSOI2007]建筑抢修</h2><p>很显然$deadline$靠前的一定要先完成,这个时候可以发现我们增加一个反悔操作即可.<br>证明:</p>
+<blockquote>
+<p>如果一个工程要结束了肯定要完成它,如果不能完成取最大的那个然后不做即可.<br>因为如果一个工程耗时太久一定不优.</p>
+</blockquote>
+<h2 id="CF286C-Main-Sequence"><a href="#CF286C-Main-Sequence" class="headerlink" title="CF286C Main Sequence"></a>CF286C Main Sequence</h2><p>显然这是一个括号序列问题,考虑从右往左扫,这样可以忽略钦定负数的影响,直接判断.<br>证明:</p>
+<blockquote>
+<p>如果没有钦定就判断是否配对即可.<br>考虑钦定操作相当于告诉你一个位置一定是右括号.<br>直接扫显然正确.</p>
+</blockquote>
+<h2 id="HEOI2015-兔子与樱花"><a href="#HEOI2015-兔子与樱花" class="headerlink" title="[HEOI2015]兔子与樱花"></a>[HEOI2015]兔子与樱花</h2><p>简单题,每一个点的删除代价是$c_i+son_i$,每一次选最少的合并即可.<br>证明:</p>
+<blockquote>
+<p>显然如果合并一条链从下至上一定最优,然后每次合并一定选最小的最优.</p>
+</blockquote>
+<h2 id="CF521D-Shop"><a href="#CF521D-Shop" class="headerlink" title="CF521D - Shop"></a>CF521D - Shop</h2><p>首先我们不难发现,操作的顺序一定是先修改,再加,最后乘起来.接着稍微用用脑子你就知道这样两个事实:</p>
+<ul>
+<li>加法和乘法等价</li>
+<li>修改肯定只会修改一次,并且是最大的.<br>然后我们贪心的做,每一次选择乘积最大的即可.<br>证明:<blockquote>
+<p>唯一的问题在于确定加法的顺序:<br>$mul=\frac{sum+a_i}{sum}=\frac{a_i}{sum}+1=frac{a_i}{a_i+sum_{i-1}}+1$<br>只需要每次选差异最大的即可.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Noip2011-观光公交"><a href="#Noip2011-观光公交" class="headerlink" title="Noip2011 观光公交"></a>Noip2011 观光公交</h2><p>很显然我们要找到影响人数最多的路线$-1$,这样子才最优,那么我们每次暴力找,重复$k$次即可.复杂度分析不会,但是不满.<del>这道题目告诉我们在<code>CSP</code>考场上,随便写暴力说不定就<code>AC</code>了.</del><br>正确性显然.</p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>每一次选择人数最多的一段$到达时间 \ge 最后一个来的时间$的区间,这个可以每一次找有用区间然后用堆维护,复杂度为$O(nlogn)$</p>
+<h2 id="Noip2012-疫情控制"><a href="#Noip2012-疫情控制" class="headerlink" title="Noip2012 疫情控制"></a>Noip2012 疫情控制</h2><p>很显然可以二分,然后考虑每一个可以往上走的一定最靠近根节点最好,然后剩余的大的匹配大的即可.</p>
+<h2 id="Noip2012-国王游戏"><a href="#Noip2012-国王游戏" class="headerlink" title="Noip2012 国王游戏"></a>Noip2012 国王游戏</h2><p>随便考虑相邻两个位置发现$a+b$排序最优,注意要写高精度.</p>
+<h2 id="CTSC2007-数据备份Backup"><a href="#CTSC2007-数据备份Backup" class="headerlink" title="[CTSC2007]数据备份Backup"></a>[CTSC2007]数据备份Backup</h2><p><del>凸优化模板题.</del><br>考虑每一次选最小的然后模拟费用流.<br>正确性显然.</p>
+<h2 id="Tjoi2013-拯救小矮人"><a href="#Tjoi2013-拯救小矮人" class="headerlink" title="[Tjoi2013]拯救小矮人"></a>[Tjoi2013]拯救小矮人</h2><p>很显然每个小矮人的能力值就是$a+b$,然后按照这个排序$dp$即可.<br>正确性显然.</p>
+<h2 id="HNOI-AHOI2018-排列"><a href="#HNOI-AHOI2018-排列" class="headerlink" title="[HNOI/AHOI2018]排列"></a>[HNOI/AHOI2018]排列</h2><p>考虑$a_{p_j}={p_k}\ \ \ k&lt;j$的限制可以通过转换排列,钦定$f_i$表示第$i$个数什么时候选择.<br>$a_{p_j}={p_k}\ \ \ k&lt;j \Longrightarrow a_j=k\ \ \ f_{a_j}&lt;f_j$.<br>这个时候用连边表示先后关系,每一次选平均权值最小的出来即可.<br>证明:</p>
+<blockquote>
+<p>设一个$siz$设一个$w$即可.</p>
+</blockquote>
+<h2 id="HNOI2015-菜肴制作"><a href="#HNOI2015-菜肴制作" class="headerlink" title="[HNOI2015]菜肴制作"></a>[HNOI2015]菜肴制作</h2><p>考虑要让正着的字典序最小,等价于让倒着的字典序最大,用堆$topsort$即可.<br>证明:</p>
+<blockquote>
+<p>挖坑待补.</p>
+</blockquote>
+<h2 id="AHOI2014-JSOI2014-宅男计划"><a href="#AHOI2014-JSOI2014-宅男计划" class="headerlink" title="[AHOI2014/JSOI2014]宅男计划"></a>[AHOI2014/JSOI2014]宅男计划</h2><p>不难发现这是一个单峰函数,然后每一次贪心的取最小花费的即可.</p>
+<h2 id="【清华集训2017】小-Y-和二叉树"><a href="#【清华集训2017】小-Y-和二叉树" class="headerlink" title="【清华集训2017】小 Y 和二叉树"></a>【清华集训2017】小 Y 和二叉树</h2><p>挖坑待补.</p>
+<h2 id="CF573E-Bear-and-Bowling"><a href="#CF573E-Bear-and-Bowling" class="headerlink" title="CF573E Bear and Bowling"></a>CF573E Bear and Bowling</h2><p>挖坑待补.</p>
+<h2 id="【BZOJ3508】开灯"><a href="#【BZOJ3508】开灯" class="headerlink" title="【BZOJ3508】开灯"></a>【BZOJ3508】开灯</h2><p>挖坑待补.</p>
+]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>greedy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JOI 2019 Final</title>
     <url>/2019/10/26/JOI-2019-Final/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>两次考试直接爆炸,然后GG了<del>还被$_tham$Diss了..</del></p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>两次考试直接爆炸,然后GG了<del>还被<code>tham</code>Diss了..</del></p>
 <a id="more"></a>
 
 <h2 id="「JOI-2019-Final」勇者比太郎"><a href="#「JOI-2019-Final」勇者比太郎" class="headerlink" title="「JOI 2019 Final」勇者比太郎"></a>「JOI 2019 Final」勇者比太郎</h2><p>参见10.22考试题解.</p>
@@ -31,16 +144,26 @@
 <a id="more"></a>
 
 <h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ul>
-<li><input disabled="" type="checkbox"> 斜率优化</li>
+<li><input checked="" disabled="" type="checkbox"> 斜率优化</li>
+</ul>
+<hr>
+<p>咕了.</p>
+<ul>
 <li><input disabled="" type="checkbox"> 决策单调性</li>
 <li><input disabled="" type="checkbox"> 凸优化dp(wqs二分)</li>
 </ul>
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ul>
-<li><input disabled="" type="checkbox"> Loj观光公交加强版</li>
-<li><input disabled="" type="checkbox"> BZOJ1150</li>
+<li><input checked="" disabled="" type="checkbox"> Loj观光公交加强版</li>
+<li><input checked="" disabled="" type="checkbox"> BZOJ1150</li>
 </ul>
 <h2 id="比赛"><a href="#比赛" class="headerlink" title="比赛"></a>比赛</h2><ul>
 <li><input disabled="" type="checkbox"> Codeforces Round 596 (based on Technocup 2020 - Elimination Round 2)</li>
+<li><input disabled="" type="checkbox"> AtCoder Beginner Contest 144</li>
+</ul>
+<h2 id="番剧"><a href="#番剧" class="headerlink" title="番剧"></a>番剧</h2><p><del>我该不该说我是在机房康完的?</del></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 刀剑神域</li>
+<li><input checked="" disabled="" type="checkbox"> 刺客伍六七</li>
 </ul>
 ]]></content>
       <tags>
@@ -127,15 +250,22 @@
 <h2 id="CF521D-Shop"><a href="#CF521D-Shop" class="headerlink" title="CF521D - Shop"></a>CF521D - Shop</h2><p>首先我们不难发现,操作的顺序一定是先修改,再加,最后乘起来.接着稍微用用脑子你就知道这样两个事实:</p>
 <ul>
 <li>加法和乘法等价</li>
-<li>修改肯定只会修改一次,并且是最大的.<br>然后我们贪心的做,每一次选择成绩最大的即可.</li>
+<li>修改肯定只会修改一次,并且是最大的.<br>然后我们贪心的做,每一次选择乘积最大的即可.</li>
 </ul>
 <h2 id="CF161B-Discounts"><a href="#CF161B-Discounts" class="headerlink" title="CF161B - Discounts"></a>CF161B - Discounts</h2><p>很显然列一下式子发现选择一个凳子一组一定不会更劣,直接模拟即可.</p>
-<h2 id="CF140C-New-Year-Snowmen-1"><a href="#CF140C-New-Year-Snowmen-1" class="headerlink" title="CF140C - New Year Snowmen"></a>CF140C - New Year Snowmen</h2><p>简单题,没啥好说的.</p>
 <h2 id="「JOI-2019-Final」独特的城市"><a href="#「JOI-2019-Final」独特的城市" class="headerlink" title="「JOI 2019 Final」独特的城市"></a>「JOI 2019 Final」独特的城市</h2><p><a href="../../../../2019/10/26/JOI-2019-Final/">看这里</a></p>
 <h2 id="「JOI-2019-Final」硬币收藏"><a href="#「JOI-2019-Final」硬币收藏" class="headerlink" title="「JOI 2019 Final」硬币收藏"></a>「JOI 2019 Final」硬币收藏</h2><p><a href="../../../../2019/10/26/JOI-2019-Final/">看这里</a></p>
 <h2 id="「JOI-2019-Final」画展"><a href="#「JOI-2019-Final」画展" class="headerlink" title="「JOI 2019 Final」画展"></a>「JOI 2019 Final」画展</h2><p><a href="../../../../2019/10/26/JOI-2019-Final/">看这里</a></p>
 <h2 id="CTSC2007-数据备份Backup"><a href="#CTSC2007-数据备份Backup" class="headerlink" title="[CTSC2007]数据备份Backup"></a>[CTSC2007]数据备份Backup</h2><p>凸优化模板题.</p>
-]]></content>
+<h2 id="Tjoi2013-拯救小矮人"><a href="#Tjoi2013-拯救小矮人" class="headerlink" title="[Tjoi2013]拯救小矮人"></a>[Tjoi2013]拯救小矮人</h2><p>很显然每个小矮人的能力值就是$a+b$,然后按照这个排序$dp$即可.</p>
+<h2 id="HNOI2015-菜肴制作"><a href="#HNOI2015-菜肴制作" class="headerlink" title="[HNOI2015]菜肴制作"></a>[HNOI2015]菜肴制作</h2><p>在反图上拓扑排序即可.</p>
+<h2 id="HNOI-AHOI2018-排列"><a href="#HNOI-AHOI2018-排列" class="headerlink" title="[HNOI/AHOI2018]排列"></a>[HNOI/AHOI2018]排列</h2><p><a href="../../../../2019/10/28/贪心题目合集/">看这里</a></p>
+<h2 id="小Y和二叉树"><a href="#小Y和二叉树" class="headerlink" title="小Y和二叉树"></a>小Y和二叉树</h2><p><a href="../../../../2019/10/28/贪心题目合集/">看这里</a></p>
+<h2 id="HNOI2008-玩具装箱"><a href="#HNOI2008-玩具装箱" class="headerlink" title="HNOI2008 玩具装箱"></a>HNOI2008 玩具装箱</h2><p>待补</p>
+<h2 id="APIO2010-特别行动队"><a href="#APIO2010-特别行动队" class="headerlink" title="APIO2010 特别行动队"></a>APIO2010 特别行动队</h2><p>待补</p>
+<h2 id="SDOI2012-任务安排"><a href="#SDOI2012-任务安排" class="headerlink" title="[SDOI2012]任务安排"></a>[SDOI2012]任务安排</h2><p>待补</p>
+<h2 id="NOI2007-货币兑换Cash"><a href="#NOI2007-货币兑换Cash" class="headerlink" title="[NOI2007]货币兑换Cash"></a>[NOI2007]货币兑换Cash</h2><p>待补</p>
+<h2 id="牛客2017比赛T1"><a href="#牛客2017比赛T1" class="headerlink" title="牛客2017比赛T1"></a>牛客2017比赛T1</h2><h2 id="牛客2017比赛T2"><a href="#牛客2017比赛T2" class="headerlink" title="牛客2017比赛T2"></a>牛客2017比赛T2</h2><h2 id="牛客2017比赛T3"><a href="#牛客2017比赛T3" class="headerlink" title="牛客2017比赛T3"></a>牛客2017比赛T3</h2><h2 id="牛客2019比赛T1"><a href="#牛客2019比赛T1" class="headerlink" title="牛客2019比赛T1"></a>牛客2019比赛T1</h2><h2 id="牛客2019比赛T2"><a href="#牛客2019比赛T2" class="headerlink" title="牛客2019比赛T2"></a>牛客2019比赛T2</h2><h2 id="牛客2019比赛T3"><a href="#牛客2019比赛T3" class="headerlink" title="牛客2019比赛T3"></a>牛客2019比赛T3</h2>]]></content>
       <tags>
         <tag>lists</tag>
       </tags>

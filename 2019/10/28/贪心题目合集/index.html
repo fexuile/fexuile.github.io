@@ -50,18 +50,18 @@
   };
 </script>
 
-  <meta name="description" content="csp2019dp复习.">
-<meta name="keywords" content="dp">
+  <meta name="description" content="前言题目又没做完…但是这里的题解会有贪心正确性的证明.jpgFlag">
+<meta name="keywords" content="greedy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dp题目合集">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;dp%E9%A2%98%E7%9B%AE%E5%90%88%E9%9B%86&#x2F;index.html">
+<meta property="og:title" content="贪心题目合集">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;28&#x2F;%E8%B4%AA%E5%BF%83%E9%A2%98%E7%9B%AE%E5%90%88%E9%9B%86&#x2F;index.html">
 <meta property="og:site_name" content="fexuileのBlog">
-<meta property="og:description" content="csp2019dp复习.">
+<meta property="og:description" content="前言题目又没做完…但是这里的题解会有贪心正确性的证明.jpgFlag">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T02:47:03.217Z">
+<meta property="og:updated_time" content="2019-10-28T06:29:52.711Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/10/25/dp%E9%A2%98%E7%9B%AE%E5%90%88%E9%9B%86/">
+<link rel="canonical" href="http://yoursite.com/2019/10/28/%E8%B4%AA%E5%BF%83%E9%A2%98%E7%9B%AE%E5%90%88%E9%9B%86/">
 
 
 <script id="page-configurations">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>dp题目合集 | fexuileのBlog</title>
+  <title>贪心题目合集 | fexuileのBlog</title>
   
 
 
@@ -222,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/25/dp%E9%A2%98%E7%9B%AE%E5%90%88%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/28/%E8%B4%AA%E5%BF%83%E9%A2%98%E7%9B%AE%E5%90%88%E9%9B%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/logo.jpg">
@@ -235,7 +235,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          dp题目合集
+          贪心题目合集
         </h1>
 
         <div class="post-meta">
@@ -247,7 +247,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-10-25 10:27:13 / 修改时间：10:47:03" itemprop="dateCreated datePublished" datetime="2019-10-25T10:27:13+08:00">2019-10-25</time>
+              <time title="创建时间：2019-10-28 11:23:45 / 修改时间：14:29:52" itemprop="dateCreated datePublished" datetime="2019-10-28T11:23:45+08:00">2019-10-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,32 +272,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>csp2019dp复习.</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>题目又没做完…但是这里的题解会有贪心正确性的证明.jpg<del>Flag</del></p>
 <a id="more"></a>
 
-<h2 id="UVA10559-Blocks"><a href="#UVA10559-Blocks" class="headerlink" title="UVA10559 Blocks"></a>UVA10559 Blocks</h2><p>神仙题,可以很显然的看出是区间$dp$,但是二维的状态无法考虑消除中间一段的贡献再合并两边,所以多设一维状态表示与$r$颜色相同的后面有多少个消除了(在原序列可以不连续,但是最后消除中要连续),直接转移即可.</p>
-<h2 id="NOI2009-二叉查找树"><a href="#NOI2009-二叉查找树" class="headerlink" title="[NOI2009]二叉查找树"></a>[NOI2009]二叉查找树</h2><p>不难看出题目要你构造的就是一棵$Treap$,这同时也是一棵二叉查找树,所以中序遍历是固定的,所以我们可以在中序遍历上$dp$,每一次选取一个为根然后合并左右最后深度全部+1即可.</p>
-<h2 id="CF10D-LCIS"><a href="#CF10D-LCIS" class="headerlink" title="CF10D LCIS"></a>CF10D LCIS</h2><p>奇怪的题目…序列$dp$,转移位置直接每一次记下即可.</p>
-<h2 id="CF55D-Beautiful-numbers"><a href="#CF55D-Beautiful-numbers" class="headerlink" title="CF55D Beautiful numbers"></a>CF55D Beautiful numbers</h2><p>数位$dp$入门题,$dfs$即可,多记一位$0/1$表示有没有达到上限.</p>
-<h2 id="HAOI2008-硬币购物"><a href="#HAOI2008-硬币购物" class="headerlink" title="[HAOI2008]硬币购物"></a>[HAOI2008]硬币购物</h2><p>简单题,直接$dp$完全背包出来,最后容斥即可.</p>
-<h2 id="HNOI2012-集合选数"><a href="#HNOI2012-集合选数" class="headerlink" title="[HNOI2012]集合选数"></a>[HNOI2012]集合选数</h2><p>套路题,可以构造一个向右$\times 2$,向下$\times 3$的矩阵,然后状压即可,复杂度是$log_3n$和$log_2n$选一个状压的复杂度.</p>
-<h2 id="Luogu3959-宝藏"><a href="#Luogu3959-宝藏" class="headerlink" title="Luogu3959 宝藏"></a>Luogu3959 宝藏</h2><p>状压$dp$,枚举起始点即可.(据说会有一些奇怪的小问题)</p>
-<h2 id="HNOI2008-玩具装箱TOY"><a href="#HNOI2008-玩具装箱TOY" class="headerlink" title="[HNOI2008]玩具装箱TOY"></a>[HNOI2008]玩具装箱TOY</h2><p>斜率优化模板题,后续会开一个斜率优化的总结.</p>
-<h2 id="JSOI2011-柠檬"><a href="#JSOI2011-柠檬" class="headerlink" title="[JSOI2011]柠檬"></a>[JSOI2011]柠檬</h2><p>同上</p>
-<h2 id="Luogu1850-换教室"><a href="#Luogu1850-换教室" class="headerlink" title="Luogu1850 换教室"></a>Luogu1850 换教室</h2><p>概率$dp$模板题,设$f_{i,j,0/1}$表示前$i$课,申请了$j$次,上一次申请成功与否,转移即可.</p>
-<h2 id="Luogu1941-飞扬的小鸟"><a href="#Luogu1941-飞扬的小鸟" class="headerlink" title="Luogu1941 飞扬的小鸟"></a>Luogu1941 飞扬的小鸟</h2><p>看退役前的做题记录1.0.</p>
-<h2 id="HNOI-AHOI2018-道路"><a href="#HNOI-AHOI2018-道路" class="headerlink" title="[HNOI/AHOI2018]道路"></a>[HNOI/AHOI2018]道路</h2><p>$dp$就思维上是入门题,但是空间开不下,注意每一个点相关的点不多,直接存一个栈记录即可.</p>
-<h2 id="APIO2014-连珠线"><a href="#APIO2014-连珠线" class="headerlink" title="[APIO2014]连珠线"></a>[APIO2014]连珠线</h2><p>神仙题,很显然可以枚举根节点,这样子你的转移方式就是唯一的,然后设$f_{u,0/1}$表示$u$为根的子树,$u$作为/不作为中间节点的最大值.总复杂度$O(n^2)$的.<br>接着考虑每一次只有儿子之间的转移,可以换根$dp$,具体来说就是设$dp_{u,0/1,j}$表示$f_{u,0/1}$不考虑$j$这个儿子的答案,存下最大值和次大值转移即可.</p>
-<h2 id="ZJOI2010-基站选址"><a href="#ZJOI2010-基站选址" class="headerlink" title="[ZJOI2010]基站选址"></a>[ZJOI2010]基站选址</h2><p>线段树优化$dp$.</p>
-<h2 id="AT2292-Division-into-Two"><a href="#AT2292-Division-into-Two" class="headerlink" title="AT2292 Division into Two"></a>AT2292 Division into Two</h2><p><a href="../../../../2019/10/22/AGC009C-Division-into-Two/">看这里</a></p>
-<h2 id="AT2294-Eternal-Average"><a href="#AT2294-Eternal-Average" class="headerlink" title="AT2294 Eternal Average"></a>AT2294 Eternal Average</h2><p><a href="../../../../2019/10/22/AGC009E-Eternal-Average/">看这里</a></p>
-<h2 id="NOI2009-诗人小G"><a href="#NOI2009-诗人小G" class="headerlink" title="[NOI2009]诗人小G"></a>[NOI2009]诗人小G</h2><p>决策单调性优化$dp$,后面会开一篇总结.</p>
-<h2 id="CF1039D-You-Are-Given-a-Tree"><a href="#CF1039D-You-Are-Given-a-Tree" class="headerlink" title="CF1039D You Are Given a Tree"></a>CF1039D You Are Given a Tree</h2><p>首先我们注意对于一个$mid$而言,我们可以求出它的答案,那么对于$mid$左边的有一段区间,右边的也有一段区间,按照整体二分的那套理论做就行了.</p>
-<h2 id="CF960F-Pathwalks"><a href="#CF960F-Pathwalks" class="headerlink" title="CF960F Pathwalks"></a>CF960F Pathwalks</h2><p>看退役前的做题记录1.0.</p>
-<h2 id="「POI2016」Nim-z-utrudnieniem"><a href="#「POI2016」Nim-z-utrudnieniem" class="headerlink" title="「POI2016」Nim z utrudnieniem"></a>「POI2016」Nim z utrudnieniem</h2><p>看退役前的做题记录1.0.</p>
-<h2 id="「BZOJ4182」Shopping"><a href="#「BZOJ4182」Shopping" class="headerlink" title="「BZOJ4182」Shopping"></a>「BZOJ4182」Shopping</h2><p>神题,首先可以设$f_{u,j}$做一个树型依赖背包,因为选出来的点一定在连通块内.<br>接着考虑每一次都是一个子树,就可以$dsu on tree$最后求答案即可.</p>
-<h2 id="「PA2014」Druzyny"><a href="#「PA2014」Druzyny" class="headerlink" title="「PA2014」Druzyny"></a>「PA2014」Druzyny</h2><p>咕咕咕</p>
-<h2 id="「AMPPZ2014」The-Prices"><a href="#「AMPPZ2014」The-Prices" class="headerlink" title="「AMPPZ2014」The Prices"></a>「AMPPZ2014」The Prices</h2><p>状压入门题…</p>
+<h2 id="CF140C-New-Year-Snowmen"><a href="#CF140C-New-Year-Snowmen" class="headerlink" title="CF140C New Year Snowmen"></a>CF140C New Year Snowmen</h2><p>每次挑选最多的3个出来.<br>证明:</p>
+<blockquote>
+<p>如果最多的都不能够满足可以拼凑,那么比他小的肯定也不行.</p>
+</blockquote>
+<h2 id="CF161B-Discounts"><a href="#CF161B-Discounts" class="headerlink" title="CF161B Discounts"></a>CF161B Discounts</h2><p>把所有的凳子单独放一定最优,然后剩下的放在一起即可.<br>证明:</p>
+<blockquote>
+<p>令$a$为凳子的价钱,$b$为其他的价钱.<br>两个放在一起的代价为$max(a,b)+\frac{min(a,b)}{2}$<br>分开的代价是$\frac{a}{2}+b$.<br>无论如何都有$\frac{a}{2}+b \le \frac{min(a,b)}{2}+max(a,b)$<br>分类讨论证明即可.</p>
+</blockquote>
+<h2 id="叠罗汉"><a href="#叠罗汉" class="headerlink" title="叠罗汉"></a>叠罗汉</h2><p>考虑每一个罗汉的贡献,然后对于相邻的两个罗汉交换之后带来的影响列出不等式组,最后按照$a_i+b_i$从大到小排序后能选就选即可.<br>证明:</p>
+<blockquote>
+<p>现在有两个罗汉$i$,$j$,令$i$之前的体重为$w$,则:<br>如果$i$在$j$前面,<br>$$<br>\begin{cases}<br>w \ge b_i \newline<br>w \ge b_j-a_i<br>\end{cases}<br>$$<br>如果$i$在$j$后面<br>$$<br>\begin{cases}<br>w \ge b_j \newline<br>w \ge b_i-a_j<br>\end{cases}<br>$$<br>然后你分别按照这个东西排序即可,这个时候不难发现其实两个取$min$的大小就是$a_i+b_i$比较的大小.</p>
+</blockquote>
+<h2 id="JSOI2007-建筑抢修"><a href="#JSOI2007-建筑抢修" class="headerlink" title="[JSOI2007]建筑抢修"></a>[JSOI2007]建筑抢修</h2><p>很显然$deadline$靠前的一定要先完成,这个时候可以发现我们增加一个反悔操作即可.<br>证明:</p>
+<blockquote>
+<p>如果一个工程要结束了肯定要完成它,如果不能完成取最大的那个然后不做即可.<br>因为如果一个工程耗时太久一定不优.</p>
+</blockquote>
+<h2 id="CF286C-Main-Sequence"><a href="#CF286C-Main-Sequence" class="headerlink" title="CF286C Main Sequence"></a>CF286C Main Sequence</h2><p>显然这是一个括号序列问题,考虑从右往左扫,这样可以忽略钦定负数的影响,直接判断.<br>证明:</p>
+<blockquote>
+<p>如果没有钦定就判断是否配对即可.<br>考虑钦定操作相当于告诉你一个位置一定是右括号.<br>直接扫显然正确.</p>
+</blockquote>
+<h2 id="HEOI2015-兔子与樱花"><a href="#HEOI2015-兔子与樱花" class="headerlink" title="[HEOI2015]兔子与樱花"></a>[HEOI2015]兔子与樱花</h2><p>简单题,每一个点的删除代价是$c_i+son_i$,每一次选最少的合并即可.<br>证明:</p>
+<blockquote>
+<p>显然如果合并一条链从下至上一定最优,然后每次合并一定选最小的最优.</p>
+</blockquote>
+<h2 id="CF521D-Shop"><a href="#CF521D-Shop" class="headerlink" title="CF521D - Shop"></a>CF521D - Shop</h2><p>首先我们不难发现,操作的顺序一定是先修改,再加,最后乘起来.接着稍微用用脑子你就知道这样两个事实:</p>
+<ul>
+<li>加法和乘法等价</li>
+<li>修改肯定只会修改一次,并且是最大的.<br>然后我们贪心的做,每一次选择乘积最大的即可.<br>证明:<blockquote>
+<p>唯一的问题在于确定加法的顺序:<br>$mul=\frac{sum+a_i}{sum}=\frac{a_i}{sum}+1=frac{a_i}{a_i+sum_{i-1}}+1$<br>只需要每次选差异最大的即可.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Noip2011-观光公交"><a href="#Noip2011-观光公交" class="headerlink" title="Noip2011 观光公交"></a>Noip2011 观光公交</h2><p>很显然我们要找到影响人数最多的路线$-1$,这样子才最优,那么我们每次暴力找,重复$k$次即可.复杂度分析不会,但是不满.<del>这道题目告诉我们在<code>CSP</code>考场上,随便写暴力说不定就<code>AC</code>了.</del><br>正确性显然.</p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>每一次选择人数最多的一段$到达时间 \ge 最后一个来的时间$的区间,这个可以每一次找有用区间然后用堆维护,复杂度为$O(nlogn)$</p>
+<h2 id="Noip2012-疫情控制"><a href="#Noip2012-疫情控制" class="headerlink" title="Noip2012 疫情控制"></a>Noip2012 疫情控制</h2><p>很显然可以二分,然后考虑每一个可以往上走的一定最靠近根节点最好,然后剩余的大的匹配大的即可.</p>
+<h2 id="Noip2012-国王游戏"><a href="#Noip2012-国王游戏" class="headerlink" title="Noip2012 国王游戏"></a>Noip2012 国王游戏</h2><p>随便考虑相邻两个位置发现$a+b$排序最优,注意要写高精度.</p>
+<h2 id="CTSC2007-数据备份Backup"><a href="#CTSC2007-数据备份Backup" class="headerlink" title="[CTSC2007]数据备份Backup"></a>[CTSC2007]数据备份Backup</h2><p><del>凸优化模板题.</del><br>考虑每一次选最小的然后模拟费用流.<br>正确性显然.</p>
+<h2 id="Tjoi2013-拯救小矮人"><a href="#Tjoi2013-拯救小矮人" class="headerlink" title="[Tjoi2013]拯救小矮人"></a>[Tjoi2013]拯救小矮人</h2><p>很显然每个小矮人的能力值就是$a+b$,然后按照这个排序$dp$即可.<br>正确性显然.</p>
+<h2 id="HNOI-AHOI2018-排列"><a href="#HNOI-AHOI2018-排列" class="headerlink" title="[HNOI/AHOI2018]排列"></a>[HNOI/AHOI2018]排列</h2><p>考虑$a_{p_j}={p_k}\ \ \ k&lt;j$的限制可以通过转换排列,钦定$f_i$表示第$i$个数什么时候选择.<br>$a_{p_j}={p_k}\ \ \ k&lt;j \Longrightarrow a_j=k\ \ \ f_{a_j}&lt;f_j$.<br>这个时候用连边表示先后关系,每一次选平均权值最小的出来即可.<br>证明:</p>
+<blockquote>
+<p>设一个$siz$设一个$w$即可.</p>
+</blockquote>
+<h2 id="HNOI2015-菜肴制作"><a href="#HNOI2015-菜肴制作" class="headerlink" title="[HNOI2015]菜肴制作"></a>[HNOI2015]菜肴制作</h2><p>考虑要让正着的字典序最小,等价于让倒着的字典序最大,用堆$topsort$即可.<br>证明:</p>
+<blockquote>
+<p>挖坑待补.</p>
+</blockquote>
+<h2 id="AHOI2014-JSOI2014-宅男计划"><a href="#AHOI2014-JSOI2014-宅男计划" class="headerlink" title="[AHOI2014/JSOI2014]宅男计划"></a>[AHOI2014/JSOI2014]宅男计划</h2><p>不难发现这是一个单峰函数,然后每一次贪心的取最小花费的即可.</p>
+<h2 id="【清华集训2017】小-Y-和二叉树"><a href="#【清华集训2017】小-Y-和二叉树" class="headerlink" title="【清华集训2017】小 Y 和二叉树"></a>【清华集训2017】小 Y 和二叉树</h2><p>挖坑待补.</p>
+<h2 id="CF573E-Bear-and-Bowling"><a href="#CF573E-Bear-and-Bowling" class="headerlink" title="CF573E Bear and Bowling"></a>CF573E Bear and Bowling</h2><p>挖坑待补.</p>
+<h2 id="【BZOJ3508】开灯"><a href="#【BZOJ3508】开灯" class="headerlink" title="【BZOJ3508】开灯"></a>【BZOJ3508】开灯</h2><p>挖坑待补.</p>
 
     </div>
 
@@ -307,23 +334,23 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/dp/" rel="tag"># dp</a>
+              <a href="/tags/greedy/" rel="tag"># greedy</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/10/22/AGC009E-Eternal-Average/" rel="next" title="AGC009E Eternal Average">
-                  <i class="fa fa-chevron-left"></i> AGC009E Eternal Average
+                <a href="/2019/10/26/JOI-2019-Final/" rel="next" title="JOI 2019 Final">
+                  <i class="fa fa-chevron-left"></i> JOI 2019 Final
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/10/25/%E5%92%95%E5%92%95%E5%88%97%E8%A1%A8/" rel="prev" title="咕咕列表">
-                  咕咕列表 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/10/28/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="斜率优化学习笔记">
+                  斜率优化学习笔记 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -364,7 +391,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UVA10559-Blocks"><span class="nav-number">1.</span> <span class="nav-text">UVA10559 Blocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NOI2009-二叉查找树"><span class="nav-number">2.</span> <span class="nav-text">[NOI2009]二叉查找树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF10D-LCIS"><span class="nav-number">3.</span> <span class="nav-text">CF10D LCIS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF55D-Beautiful-numbers"><span class="nav-number">4.</span> <span class="nav-text">CF55D Beautiful numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HAOI2008-硬币购物"><span class="nav-number">5.</span> <span class="nav-text">[HAOI2008]硬币购物</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HNOI2012-集合选数"><span class="nav-number">6.</span> <span class="nav-text">[HNOI2012]集合选数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu3959-宝藏"><span class="nav-number">7.</span> <span class="nav-text">Luogu3959 宝藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HNOI2008-玩具装箱TOY"><span class="nav-number">8.</span> <span class="nav-text">[HNOI2008]玩具装箱TOY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSOI2011-柠檬"><span class="nav-number">9.</span> <span class="nav-text">[JSOI2011]柠檬</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu1850-换教室"><span class="nav-number">10.</span> <span class="nav-text">Luogu1850 换教室</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu1941-飞扬的小鸟"><span class="nav-number">11.</span> <span class="nav-text">Luogu1941 飞扬的小鸟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HNOI-AHOI2018-道路"><span class="nav-number">12.</span> <span class="nav-text">[HNOI/AHOI2018]道路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APIO2014-连珠线"><span class="nav-number">13.</span> <span class="nav-text">[APIO2014]连珠线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZJOI2010-基站选址"><span class="nav-number">14.</span> <span class="nav-text">[ZJOI2010]基站选址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AT2292-Division-into-Two"><span class="nav-number">15.</span> <span class="nav-text">AT2292 Division into Two</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AT2294-Eternal-Average"><span class="nav-number">16.</span> <span class="nav-text">AT2294 Eternal Average</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NOI2009-诗人小G"><span class="nav-number">17.</span> <span class="nav-text">[NOI2009]诗人小G</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1039D-You-Are-Given-a-Tree"><span class="nav-number">18.</span> <span class="nav-text">CF1039D You Are Given a Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF960F-Pathwalks"><span class="nav-number">19.</span> <span class="nav-text">CF960F Pathwalks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「POI2016」Nim-z-utrudnieniem"><span class="nav-number">20.</span> <span class="nav-text">「POI2016」Nim z utrudnieniem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「BZOJ4182」Shopping"><span class="nav-number">21.</span> <span class="nav-text">「BZOJ4182」Shopping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「PA2014」Druzyny"><span class="nav-number">22.</span> <span class="nav-text">「PA2014」Druzyny</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「AMPPZ2014」The-Prices"><span class="nav-number">23.</span> <span class="nav-text">「AMPPZ2014」The Prices</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF140C-New-Year-Snowmen"><span class="nav-number">2.</span> <span class="nav-text">CF140C New Year Snowmen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF161B-Discounts"><span class="nav-number">3.</span> <span class="nav-text">CF161B Discounts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#叠罗汉"><span class="nav-number">4.</span> <span class="nav-text">叠罗汉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSOI2007-建筑抢修"><span class="nav-number">5.</span> <span class="nav-text">[JSOI2007]建筑抢修</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF286C-Main-Sequence"><span class="nav-number">6.</span> <span class="nav-text">CF286C Main Sequence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HEOI2015-兔子与樱花"><span class="nav-number">7.</span> <span class="nav-text">[HEOI2015]兔子与樱花</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF521D-Shop"><span class="nav-number">8.</span> <span class="nav-text">CF521D - Shop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noip2011-观光公交"><span class="nav-number">9.</span> <span class="nav-text">Noip2011 观光公交</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优化"><span class="nav-number">9.1.</span> <span class="nav-text">优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noip2012-疫情控制"><span class="nav-number">10.</span> <span class="nav-text">Noip2012 疫情控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noip2012-国王游戏"><span class="nav-number">11.</span> <span class="nav-text">Noip2012 国王游戏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CTSC2007-数据备份Backup"><span class="nav-number">12.</span> <span class="nav-text">[CTSC2007]数据备份Backup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tjoi2013-拯救小矮人"><span class="nav-number">13.</span> <span class="nav-text">[Tjoi2013]拯救小矮人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HNOI-AHOI2018-排列"><span class="nav-number">14.</span> <span class="nav-text">[HNOI/AHOI2018]排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HNOI2015-菜肴制作"><span class="nav-number">15.</span> <span class="nav-text">[HNOI2015]菜肴制作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AHOI2014-JSOI2014-宅男计划"><span class="nav-number">16.</span> <span class="nav-text">[AHOI2014/JSOI2014]宅男计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【清华集训2017】小-Y-和二叉树"><span class="nav-number">17.</span> <span class="nav-text">【清华集训2017】小 Y 和二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF573E-Bear-and-Bowling"><span class="nav-number">18.</span> <span class="nav-text">CF573E Bear and Bowling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【BZOJ3508】开灯"><span class="nav-number">19.</span> <span class="nav-text">【BZOJ3508】开灯</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -604,7 +631,7 @@ window.addEventListener('pjax:success', () => {
       repo: 'gitalk',
       owner: 'fexuile',
       admin: ['fexuile'],
-      id: 'f16c8c71cd210eb36a9724b576036d3e',
+      id: '0c8da93c5d1481f2a49d35e9dd3ceb26',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });
