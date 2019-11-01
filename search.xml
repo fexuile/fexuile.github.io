@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JOI 2018 Final</title>
+    <url>/2019/11/01/JOI-2018-Final/</url>
+    <content><![CDATA[<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://loj.ac/problems/search?keyword=JOI+2018+Final" target="_blank" rel="noopener">Loj</a></p>
+<a id="more"></a>
+
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><p>简单的贪心,用单调队列维护不同时间差的最小值即可.<br><a href="https://loj.ac/submission/658228" target="_blank" rel="noopener">代码</a></p>
+<h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><p>简单模拟题,按照$A$排序之后显然取的是一段连续的,直接用前缀和拆式子然后维护后缀最小值即可.<br><a href="https://loj.ac/submission/656983" target="_blank" rel="noopener">代码</a></p>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>有意思的$dp$题,考虑$G$的放置位置,只有对角线的会互相影响,直接对于每一条对角线$dp$,设$f_{i,0/1/2}$表示考虑到了这个对角线的第$i$个,这次取竖着的,横着的或者是不取,然后转移即可.<br><a href="https://loj.ac/submission/657139" target="_blank" rel="noopener">代码</a></p>
+<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><p>简单<del>套路</del>的图论题,考虑无论如何都可以让$u\rightarrow v$的路径上经过$s\rightarrow t$的最短路上的两个点,然后你直接在最短路$DAG$图上求个最值即可,这个很显然$topsort$</p>
+<h2 id="E"><a href="#E" class="headerlink" title="E"></a>E</h2><p>对不起,它咕了.</p>
+]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>JOI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小错误</title>
+    <url>/2019/10/31/%E5%B0%8F%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<p>存储了一些$OI$的小错误.</p>
+<a id="more"></a>
+
+<ul>
+<li>线段树空间要开$N&lt;&lt;2$</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Others</category>
+      </categories>
+      <tags>
+        <tag>mistake</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>牛客CSP-S提高组赛前集训营 小w的魔术扑克</title>
     <url>/2019/10/30/%E7%89%9B%E5%AE%A2CSP-S%E6%8F%90%E9%AB%98%E7%BB%84%E8%B5%9B%E5%89%8D%E9%9B%86%E8%AE%AD%E8%90%A5-%E5%B0%8Fw%E7%9A%84%E9%AD%94%E6%9C%AF%E6%89%91%E5%85%8B/</url>
     <content><![CDATA[<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://ac.nowcoder.com/acm/contest/1100/C" target="_blank" rel="noopener">牛客</a></p>
@@ -155,6 +191,8 @@
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ul>
 <li><input checked="" disabled="" type="checkbox"> Loj观光公交加强版</li>
 <li><input checked="" disabled="" type="checkbox"> BZOJ1150</li>
+<li><input disabled="" type="checkbox"> JOI 2018 Final E</li>
+<li><input disabled="" type="checkbox"> 牛客CSP2019模拟赛R2 T3</li>
 </ul>
 <h2 id="比赛"><a href="#比赛" class="headerlink" title="比赛"></a>比赛</h2><ul>
 <li><input disabled="" type="checkbox"> Codeforces Round 596 (based on Technocup 2020 - Elimination Round 2)</li>
@@ -164,6 +202,9 @@
 <ul>
 <li><input checked="" disabled="" type="checkbox"> 刀剑神域</li>
 <li><input checked="" disabled="" type="checkbox"> 刺客伍六七</li>
+<li><input disabled="" type="checkbox"> 埃罗芒阿老师</li>
+<li><input disabled="" type="checkbox"> 天气之子</li>
+<li><input disabled="" type="checkbox"> 你的名字</li>
 </ul>
 ]]></content>
       <tags>
@@ -275,6 +316,20 @@
 <h2 id="「NOIP2009」靶形数独"><a href="#「NOIP2009」靶形数独" class="headerlink" title="「NOIP2009」靶形数独"></a>「NOIP2009」靶形数独</h2><p>随便random一下搜索顺序然后爆搜就可以通过原题.<br><del><code>hh</code>的<code>hack</code>数据还过不了..</del></p>
 <h2 id="「NOIP2010」引水入城"><a href="#「NOIP2010」引水入城" class="headerlink" title="「NOIP2010」引水入城"></a>「NOIP2010」引水入城</h2><p>$BFS$+线段覆盖,没什么好说的</p>
 <p><del>我怎么天天做sb题啊..</del></p>
+<h2 id="「NOIP2011」Mayan-游戏"><a href="#「NOIP2011」Mayan-游戏" class="headerlink" title="「NOIP2011」Mayan 游戏"></a>「NOIP2011」Mayan 游戏</h2><p>直接搜即可.<del>不是很懂我一个代码在loj可以过然后luogu同一个数据点过不了…</del></p>
+<h2 id="「NOIP2013」华容道"><a href="#「NOIP2013」华容道" class="headerlink" title="「NOIP2013」华容道"></a>「NOIP2013」华容道</h2><p>预处理然后跑<del><code>SPFA</code></del>$dijkstra$即可.</p>
+<h2 id="「NOIP2015」斗地主"><a href="#「NOIP2015」斗地主" class="headerlink" title="「NOIP2015」斗地主"></a>「NOIP2015」斗地主</h2><p>康旺财的题解.</p>
+<h2 id="SDOI2015-排序"><a href="#SDOI2015-排序" class="headerlink" title="[SDOI2015]排序"></a>[SDOI2015]排序</h2><p>考虑每一种操作只能做一次,然后又这么小,很容易想到搜索是吧.<br>交换操作顺序不会有影响,然后直接暴力搜索即可.</p>
+<h2 id="SCOI2005-栅栏"><a href="#SCOI2005-栅栏" class="headerlink" title="[SCOI2005]栅栏"></a>[SCOI2005]栅栏</h2><p>暴力枚举+二分.</p>
+<h2 id="JLOI2014-聪明的燕姿"><a href="#JLOI2014-聪明的燕姿" class="headerlink" title="[JLOI2014]聪明的燕姿"></a>[JLOI2014]聪明的燕姿</h2><p>原数和$S$同级,直接把$\sqrt{S}$以内的质数筛出来暴力即可.</p>
+<h2 id="CF293B-Distinct-Paths"><a href="#CF293B-Distinct-Paths" class="headerlink" title="CF293B - Distinct Paths"></a>CF293B - Distinct Paths</h2><p>很显然有$n+m-1&gt;k$就无解,然后直接搜索即可.</p>
+<h2 id="CF1105E-Helping-Hiasat"><a href="#CF1105E-Helping-Hiasat" class="headerlink" title="CF1105E - Helping Hiasat"></a>CF1105E - Helping Hiasat</h2><p>如果两个用户在相邻的1里面访问了显然就不能同时高兴,直接模拟退火求最大独立集即可.</p>
+<h2 id="SCOI2010-幸运数字"><a href="#SCOI2010-幸运数字" class="headerlink" title="[SCOI2010]幸运数字"></a>[SCOI2010]幸运数字</h2><p>爆搜+容斥,从大到小搜索.</p>
+<h2 id="「JOISC-2014-Day2」水壶"><a href="#「JOISC-2014-Day2」水壶" class="headerlink" title="「JOISC 2014 Day2」水壶"></a>「JOISC 2014 Day2」水壶</h2><p>以每一个建筑为起点可以找到一个范围,然后边界上的点才会对答案有影响,直接建$Kruscal$重构树然后查$lca$的点权即可.</p>
+<h2 id="JOI-2018-Final-A"><a href="#JOI-2018-Final-A" class="headerlink" title="JOI 2018 Final A"></a>JOI 2018 Final A</h2><p><a href="../../../../2019/11/01/JOI-2018-Final/">看这里</a></p>
+<h2 id="JOI-2018-Final-B"><a href="#JOI-2018-Final-B" class="headerlink" title="JOI 2018 Final B"></a>JOI 2018 Final B</h2><p><a href="../../../../2019/11/01/JOI-2018-Final/">看这里</a></p>
+<h2 id="JOI-2018-Final-C"><a href="#JOI-2018-Final-C" class="headerlink" title="JOI 2018 Final C"></a>JOI 2018 Final C</h2><p><a href="../../../../2019/11/01/JOI-2018-Final/">看这里</a></p>
+<h2 id="JOI-2018-Final-D"><a href="#JOI-2018-Final-D" class="headerlink" title="JOI 2018 Final D"></a>JOI 2018 Final D</h2><p><a href="../../../../2019/11/01/JOI-2018-Final/">看这里</a></p>
 ]]></content>
       <tags>
         <tag>lists</tag>
