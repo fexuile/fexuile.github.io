@@ -192,7 +192,10 @@
 <li><input checked="" disabled="" type="checkbox"> Loj观光公交加强版</li>
 <li><input checked="" disabled="" type="checkbox"> BZOJ1150</li>
 <li><input disabled="" type="checkbox"> JOI 2018 Final E</li>
+<li><input checked="" disabled="" type="checkbox"> JOI 2018 Final A</li>
 <li><input disabled="" type="checkbox"> 牛客CSP2019模拟赛R2 T3</li>
+<li><input disabled="" type="checkbox"> 牛客CSP2019模拟赛R3 T2</li>
+<li><input disabled="" type="checkbox"> 牛客CSP2019模拟赛R3 T3</li>
 </ul>
 <h2 id="比赛"><a href="#比赛" class="headerlink" title="比赛"></a>比赛</h2><ul>
 <li><input disabled="" type="checkbox"> Codeforces Round 596 (based on Technocup 2020 - Elimination Round 2)</li>
