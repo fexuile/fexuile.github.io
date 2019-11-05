@@ -38,6 +38,8 @@
 <h2 id="JSOI2008-Blue-Mary的旅行"><a href="#JSOI2008-Blue-Mary的旅行" class="headerlink" title="[JSOI2008]Blue Mary的旅行"></a>[JSOI2008]Blue Mary的旅行</h2><p><del>为什么泥萌都是用的二分+网络流啊…</del><br>直接多连几条边然后跑费用流就行了.</p>
 <h2 id="「NOIP2011」聪明的质监员"><a href="#「NOIP2011」聪明的质监员" class="headerlink" title="「NOIP2011」聪明的质监员"></a>「NOIP2011」聪明的质监员</h2><p>不难发现这是一个单调函数,直接二分然后<del>树状数组</del>前缀和即可.</p>
 <h2 id="Loj6704-健身计划"><a href="#Loj6704-健身计划" class="headerlink" title="Loj6704. 健身计划"></a>Loj6704. 健身计划</h2><p>一道推式子好题,$xf_{i+1}$和$af_i$做差即可,$f$是$dp$数组.</p>
+<h2 id="「NOIP2015」运输计划"><a href="#「NOIP2015」运输计划" class="headerlink" title="「NOIP2015」运输计划"></a>「NOIP2015」运输计划</h2><p>很显然答案可以二分,然后找不符合路径的交的最长边$check$即可.</p>
+<h2 id="「NOIP2012」开车旅行"><a href="#「NOIP2012」开车旅行" class="headerlink" title="「NOIP2012」开车旅行"></a>「NOIP2012」开车旅行</h2><p>码农题,很显然的倍增,用双向链表维护即可.</p>
 ]]></content>
       <tags>
         <tag>lists</tag>
