@@ -50,14 +50,14 @@
   };
 </script>
 
-  <meta name="description" content="留言板,欢迎留言.">
+  <meta name="description" content="留言板,欢迎留言. :D 获取中...       fetch(&amp;apos;https:&#x2F;&#x2F;v1.hitokoto.cn&amp;apos;)     .then(function (res){       return res.json();     })     .then(function (data) {       var hitokoto = document.getElementById(&amp;apos;hitokoto&amp;apos;)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="留言板">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;comment&#x2F;index.html">
 <meta property="og:site_name" content="fexuileのBlog">
-<meta property="og:description" content="留言板,欢迎留言.">
+<meta property="og:description" content="留言板,欢迎留言. :D 获取中...       fetch(&amp;apos;https:&#x2F;&#x2F;v1.hitokoto.cn&amp;apos;)     .then(function (res){       return res.json();     })     .then(function (data) {       var hitokoto = document.getElementById(&amp;apos;hitokoto&amp;apos;)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-30T08:30:52.741Z">
+<meta property="og:updated_time" content="2019-11-04T11:25:38.489Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/comment/">
@@ -246,6 +246,23 @@
       
       <div class="post-body">
           <p>留言板,欢迎留言.</p>
+<div id="hitokoto"style="font-size:18px;color:orange;">:D 获取中...</div>
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<!--End-->
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = data.hitokoto; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
 
       </div>
       
@@ -302,7 +319,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
