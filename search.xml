@@ -111,7 +111,15 @@
 <h2 id="「JOI-2017-Final」焚风现象"><a href="#「JOI-2017-Final」焚风现象" class="headerlink" title="「JOI 2017 Final」焚风现象"></a>「JOI 2017 Final」焚风现象</h2><p>简单题,考虑区间修改只会对$l$和$r$产生影响,直接树状数组暴力修改即可.</p>
 <h2 id="「JOI-2017-Final」准高速电车"><a href="#「JOI-2017-Final」准高速电车" class="headerlink" title="「JOI 2017 Final」准高速电车"></a>「JOI 2017 Final」准高速电车</h2><p>每一次用堆维护能够为答案增加最多贡献的位置点然后不断向后移动即可.</p>
 <h2 id="「JOI-2017-Final」JOIOI-王国"><a href="#「JOI-2017-Final」JOIOI-王国" class="headerlink" title="「JOI 2017 Final」JOIOI 王国"></a>「JOI 2017 Final」JOIOI 王国</h2><p>考虑选的只有可能是左上角,右下角,右上角,左下角四个位置,直接做4次二分即可.</p>
-<h2 id="「JOI-2017-Final」足球"><a href="#「JOI-2017-Final」足球" class="headerlink" title="「JOI 2017 Final」足球"></a>「JOI 2017 Final」足球</h2><p>咕咕咕.</p>
+<h2 id="「JOI-2017-Final」足球"><a href="#「JOI-2017-Final」足球" class="headerlink" title="「JOI 2017 Final」足球"></a>「JOI 2017 Final」足球</h2><p>$\texttt{copy from M_sea}$<br>首先可以发现最优解大概是这样一个过程：</p>
+<ul>
+<li>控球的球员运球。</li>
+<li>控球的球员踢球。</li>
+<li>离球最近的球员移动，然后控球。</li>
+</ul>
+<p>因此可以把每个位置 $(x,y)$ 拆成 $3$ 个点，分别代表控球、东西方向滚动、南北方向滚动。</p>
+<p>连边的话控球到滚边权为 $B$，滚到控球边权为 $dis_{x,y}\times C$（$dis_{x,y}$ 表示离 $(x,y)$ 最近的球员到 $(x,y)$ 的距离），运球到相邻格子边权为 $C$，滚到相邻格子边权为 $A$。</p>
+<p>然后直接跑最短路即可。</p>
 <h2 id="「JOI-2017-Final」绳"><a href="#「JOI-2017-Final」绳" class="headerlink" title="「JOI 2017 Final」绳"></a>「JOI 2017 Final」绳</h2><p>咕咕咕.</p>
 ]]></content>
       <categories>
@@ -159,6 +167,11 @@
 <h2 id="NOIp2017-D1T1"><a href="#NOIp2017-D1T1" class="headerlink" title="NOIp2017 D1T1"></a>NOIp2017 D1T1</h2><p>咕咕咕</p>
 <h2 id="NOIp2017-D1T2"><a href="#NOIp2017-D1T2" class="headerlink" title="NOIp2017 D1T2"></a>NOIp2017 D1T2</h2><p>咕咕咕</p>
 <h2 id="NOIp2017-D1T3"><a href="#NOIp2017-D1T3" class="headerlink" title="NOIp2017 D1T3"></a>NOIp2017 D1T3</h2><p>咕咕咕</p>
+<h2 id="NOIp2017-D2T1"><a href="#NOIp2017-D2T1" class="headerlink" title="NOIp2017 D2T1"></a>NOIp2017 D2T1</h2><p>咕咕咕</p>
+<h2 id="NOIp2017-D2T2"><a href="#NOIp2017-D2T2" class="headerlink" title="NOIp2017 D2T2"></a>NOIp2017 D2T2</h2><p>咕咕咕</p>
+<h2 id="NOIp2017-D2T3"><a href="#NOIp2017-D2T3" class="headerlink" title="NOIp2017 D2T3"></a>NOIp2017 D2T3</h2><p>咕咕咕</p>
+<h2 id="NOIp2016-D1T1"><a href="#NOIp2016-D1T1" class="headerlink" title="NOIp2016 D1T1"></a>NOIp2016 D1T1</h2><p>咕咕咕</p>
+<h2 id="NOIp2016-D2T1"><a href="#NOIp2016-D2T1" class="headerlink" title="NOIp2016 D2T1"></a>NOIp2016 D2T1</h2><p>咕咕咕</p>
 ]]></content>
       <tags>
         <tag>清单</tag>
@@ -360,10 +373,8 @@
 <li><input checked="" disabled="" type="checkbox"> BZOJ1150</li>
 <li><input checked="" disabled="" type="checkbox"> JOI 2018 Final E</li>
 <li><input checked="" disabled="" type="checkbox"> JOI 2018 Final A</li>
-<li><input disabled="" type="checkbox"> 牛客CSP2019模拟赛R2 T3</li>
 <li><input disabled="" type="checkbox"> 牛客CSP2019模拟赛R3 T2</li>
 <li><input disabled="" type="checkbox"> 牛客CSP2019模拟赛R3 T3</li>
-<li><input disabled="" type="checkbox"> NOIp2018 保卫王国</li>
 <li><input disabled="" type="checkbox"> APIO2019</li>
 <li><input disabled="" type="checkbox"> 2017山东集训</li>
 </ul>
