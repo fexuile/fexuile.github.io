@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.2" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.2">
+
+<link rel="stylesheet" href="fonts.googleapis.com/css?family=Monaco:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="网络流基础一些定义 $V$ 表示整个图中的所有结点的集合。 $E$ 表示整个图中所有边的集合。 $G = (V, E)$ ,表示整个图。 $S$ 表示网络的源点,$T$ 表示网络的汇点。 对于每条边 $(u, v)$, 有一个容量 $C(u, v)(C(u, v) \ge 0)$ 如果 $C(u, v) = 0$,则表示 $(u, v)$ 不存在在网络中。 如果原网络中不存在边 $(u, v)$,">
+<meta name="keywords" content="网络流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络流总结">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;16&#x2F;%E7%BD%91%E7%BB%9C%E6%B5%81%E6%80%BB%E7%BB%93&#x2F;index.html">
+<meta property="og:site_name" content="fexuileのBlog">
+<meta property="og:description" content="网络流基础一些定义 $V$ 表示整个图中的所有结点的集合。 $E$ 表示整个图中所有边的集合。 $G = (V, E)$ ,表示整个图。 $S$ 表示网络的源点,$T$ 表示网络的汇点。 对于每条边 $(u, v)$, 有一个容量 $C(u, v)(C(u, v) \ge 0)$ 如果 $C(u, v) = 0$,则表示 $(u, v)$ 不存在在网络中。 如果原网络中不存在边 $(u, v)$,">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-16T14:34:36.311Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/16/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>网络流总结 | fexuileのBlog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a href="https://github.com/fexuile" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">fexuileのBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">A Dreamer</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-友链">
+
+    <a href="/friends/" rel="section"><i class="fa fa-fw fa-users"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-评论">
+
+    <a href="/comment/" rel="section"><i class="fa fa-fw fa-comment"></i>评论</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/16/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.jpg">
+      <meta itemprop="name" content="fexuile">
+      <meta itemprop="description" content="OI什么的要是带着功利心就没意思了.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fexuileのBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网络流总结
+        </h1>
+
+        <div class="post-meta">
+	  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-16 17:23:50 / 修改时间：22:34:36" itemprop="dateCreated datePublished" datetime="2020-01-16T17:23:50+08:00">2020-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Summary/" itemprop="url" rel="index">
+                    <span itemprop="name">Summary</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="网络流基础"><a href="#网络流基础" class="headerlink" title="网络流基础"></a>网络流基础</h2><h3 id="一些定义"><a href="#一些定义" class="headerlink" title="一些定义"></a>一些定义</h3><ol>
+<li>$V$ 表示整个图中的所有结点的集合。</li>
+<li>$E$ 表示整个图中所有边的集合。</li>
+<li>$G = (V, E)$ ,表示整个图。</li>
+<li>$S$ 表示网络的源点,$T$ 表示网络的汇点。</li>
+<li>对于每条边 $(u, v)$, 有一个容量 $C(u, v)(C(u, v) \ge 0)$</li>
+<li>如果 $C(u, v) = 0$,则表示 $(u, v)$ 不存在在网络中。</li>
+<li>如果原网络中不存在边 $(u, v)$,则令 $C(u, v) = 0$.</li>
+<li>对于每条边 $(u, v)$, 有一个流量 $f(u, v)$。</li>
+</ol>
+<p>注意,网络流必须满足流量平衡,即流入的等于流出的.</p>
+<a id="more"></a>
+
+<h3 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h3><p>最大流算法有$EK$,$Dinic$,$ISAP$和$HLPP$,$HLPP$的上界卡的比较紧,所以这里介绍$ISAP$和$Dinic$</p>
+<p><del>其实有<code>HLPP</code>,因为我发现自己的<code>ISAP</code>过不了加强版/kel.</del></p>
+<h4 id="Dinic"><a href="#Dinic" class="headerlink" title="Dinic"></a>Dinic</h4><p>Dinic算法就是先找出残量网络中的$s \to t$路径然后增广.</p>
+<p><a href="https://loj.ac/submission/722309" target="_blank" rel="noopener">代码实现</a></p>
+<h4 id="ISAP"><a href="#ISAP" class="headerlink" title="ISAP"></a>ISAP</h4><p>考虑说每次$BFS$找残量网络中的路径很麻烦是吧,考虑优化这个过程.</p>
+<ol>
+<li>反着求出每一个点的深度.</li>
+<li>每一次增广就把深度增加.</li>
+<li>出现断层就退出.</li>
+</ol>
+<p>这样子跑的$BFS$只有一次,可以优化.</p>
+<p><a href="https://loj.ac/submission/722317" target="_blank" rel="noopener">代码实现</a></p>
+<h4 id="HLPP"><a href="#HLPP" class="headerlink" title="HLPP"></a>HLPP</h4><p>最高标号+预流推进,名字听着就是算法过程.</p>
+<ol>
+<li>首先bfs求出所有点的$height$,判断$s,t$是否连通并且将$h[s]=n$.</li>
+<li>更新$gap$</li>
+<li>推$s$,防止一开始就出现$Inf$的边.</li>
+<li>推队列中的点</li>
+</ol>
+<p>最后答案就是$t$中的流量.</p>
+<p>$HLPP$其实只要掌握了原理写起来还是不难<del>背诵大赛</del></p>
+<p><a href="https://loj.ac/submission/722559" target="_blank" rel="noopener">代码实现</a></p>
+<p><a href="https://www.luogu.com.cn/blog/105496/solution-p4722" target="_blank" rel="noopener">学习博客</a></p>
+<h3 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h3><p>将拥有源点 $S$ 和汇点 $T$ 的结点集合 $V$ 分成两个子集 $s$ 和 $t$,当且仅当 $S$ 属于$ s $且$ T$属于$t$时,称这种分割为$ S − T$割。</p>
+<p>$s − t $的容量$ C[s, t] $指的是所有从$ s$到$ t $的边的容量之和。具体公式如下:</p>
+<p>$$<br>C[s,t]=\sum_{(u,v) \in E,u \in s,v \in t}C[u][v]<br>$$</p>
+<p>最小割,就是所有可能的 $S − T$ 割中容量最小的 $S − T$ 割。</p>
+<p>最小割=最大流.</p>
+<p>用最大流最小割仅仅能做到求出最小割的具体数值,但是如果题目要求的是求出最小割的<br>方案,那么还需要进一步的操作。</p>
+<p>我们可以利用 dinic 算法的分层图,如果一条边$ (u,v) $已经满载,并且$ u $和$ S$联通,$v$和$S$不连通,则把它输出,最后输出的所有边就是一个可行的最小割的方案,其实就是割的定义式.</p>
+<p>这个问题的拓展还有:</p>
+<ol>
+<li>求哪些边一定在最小割中:把这条边退流,删除这条边后重新寻找的增广路流量与这条边原来的流量相同</li>
+<li>求哪些边可能在最小割中:对某条边退流后重新找增广路可以使得这条边满载且$ u $和$ S $联通,$v $不和$ S $联通.</li>
+</ol>
+<h3 id="费用流"><a href="#费用流" class="headerlink" title="费用流"></a>费用流</h3><h4 id="EK"><a href="#EK" class="headerlink" title="EK"></a>EK</h4><p>众所周知,就是$SPFA$.</p>
+<p><a href="https://loj.ac/submission/722571" target="_blank" rel="noopener">代码实现</a></p>
+<h4 id="zkw费用流"><a href="#zkw费用流" class="headerlink" title="zkw费用流"></a>zkw费用流</h4><p>不会,鸽了.</p>
+<h3 id="二分图的一些东西"><a href="#二分图的一些东西" class="headerlink" title="二分图的一些东西"></a>二分图的一些东西</h3><ul>
+<li><strong>可能</strong>在二分图中的点:他是来搞笑的,所有有度数的点都是可能在最大匹配中的点.</li>
+<li>一定在二分图最大匹配中的点:先求任意一个最大匹配$ S$,那么一定在二分图最大匹配中的点一定是$ S $的子集.源点能到达的左侧的点,和能到达汇点的右侧的点就都不是一定在最大匹配中,即在残量网络中可以找到替代路径,剩下的在$ S $中的点就一定在最大匹配中.</li>
+<li>可能在二分图最大匹配中的边:先求任意一个最大匹配$ S$.$S$中的边都为可能在二分图最大匹配中的边,然后考虑其它边,如果一条未匹配边的两个端点中有一个不在$S$中,则这条边可能在最大匹配中,否则,如果想把这条边加入匹配,则需要一个交错环,那么我们把所有边定向,匹配边从右往左,非匹配边从左往右,如果一条边两个端点在同一个$SCC$中则也可能在最大匹配中.</li>
+<li>一定在二分图最大匹配中的边:先求任意一个最大匹配$S$.那么$S$中的边中不能被非$S$的边替代的边就是一定在最大匹配中的边,所以方法也是类似的.从所有不在$S$中的点出发,能够访问到的边就都不是一定在最大匹配中的边.(如果是从左侧的点出发,那么从左到右走非匹配边,从右到左走匹配边)然后再缩点,如果$S$中某条边两段在同一个$SCC$中也不一定在最大匹配中.</li>
+</ul>
+<hr>
+<ul>
+<li>可能在最小割中的边:首先把所有还有流量的边拿出来跑$tarjan$缩强连通分量.如果某条满流边的两个端点不在<br>同一个$SCC$中则可能在最小割中。</li>
+<li>一定在最小割中的边:首先把所有还有流量的边拿出来跑$tarjan$缩强连通分量.如果某条满流边的两个端点$(u,v)$满足$s$和$u$在同一个强连通分量,$v$和$t$在同一个强连通分量则这条边一定在最小割中。</li>
+</ul>
+<p>这两个的证明考虑<strong>可能在</strong>就是对于一条边减流量那么最小割会减小;<strong>一定在</strong>就是对于这条边加流量,那么最小割会增大.</p>
+<h2 id="网络流建模"><a href="#网络流建模" class="headerlink" title="网络流建模"></a>网络流建模</h2>
+    </div>
+
+    
+    
+    
+
+	<div>
+  
+    <div>
+    
+                <div style="text-align:center;color: #ccc;font-size:14px;">-------------EOF-------------</div>
+    
+</div>
+
+  
+</div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag"># 网络流</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/01/15/%E5%9C%A3%E6%9D%AF%E4%B9%8B%E6%88%98%E5%89%8D%E7%9A%84%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="next" title="圣杯之战前的做题记录">
+                  <i class="fa fa-chevron-left"></i> 圣杯之战前的做题记录
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络流基础"><span class="nav-number">1.</span> <span class="nav-text">网络流基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一些定义"><span class="nav-number">1.1.</span> <span class="nav-text">一些定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大流"><span class="nav-number">1.2.</span> <span class="nav-text">最大流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dinic"><span class="nav-number">1.2.1.</span> <span class="nav-text">Dinic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ISAP"><span class="nav-number">1.2.2.</span> <span class="nav-text">ISAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HLPP"><span class="nav-number">1.2.3.</span> <span class="nav-text">HLPP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最小割"><span class="nav-number">1.3.</span> <span class="nav-text">最小割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#费用流"><span class="nav-number">1.4.</span> <span class="nav-text">费用流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EK"><span class="nav-number">1.4.1.</span> <span class="nav-text">EK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zkw费用流"><span class="nav-number">1.4.2.</span> <span class="nav-text">zkw费用流</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分图的一些东西"><span class="nav-number">1.5.</span> <span class="nav-text">二分图的一些东西</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络流建模"><span class="nav-number">2.</span> <span class="nav-text">网络流建模</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="fexuile"
+    src="/images/logo.jpg">
+  <p class="site-author-name" itemprop="name">fexuile</p>
+  <div class="site-description" itemprop="description">OI什么的要是带着功利心就没意思了.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共17.2k字</span>
+</div>
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+
+  <span class="author" itemprop="copyrightHolder">fexuile</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
+<script src="/js/schemes/pisces.js?v=7.4.2"></script>
+<script src="/js/next-boot.js?v=7.4.2"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.2"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'e9bbaf0389c07b6e10e3',
+      clientSecret: '23c19fa4b84d1d48e5b776e55e4e3cae18b77100',
+      repo: 'gitalk',
+      owner: 'fexuile',
+      admin: ['fexuile'],
+      id: '2d7ce04d9651208dd2c9aa1a0c0765c3',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+    </div>
+</body>
+</html>

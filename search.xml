@@ -1,6 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>网络流总结</title>
+    <url>/2020/01/16/%E7%BD%91%E7%BB%9C%E6%B5%81%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="网络流基础"><a href="#网络流基础" class="headerlink" title="网络流基础"></a>网络流基础</h2><h3 id="一些定义"><a href="#一些定义" class="headerlink" title="一些定义"></a>一些定义</h3><ol>
+<li>$V$ 表示整个图中的所有结点的集合。</li>
+<li>$E$ 表示整个图中所有边的集合。</li>
+<li>$G = (V, E)$ ,表示整个图。</li>
+<li>$S$ 表示网络的源点,$T$ 表示网络的汇点。</li>
+<li>对于每条边 $(u, v)$, 有一个容量 $C(u, v)(C(u, v) \ge 0)$</li>
+<li>如果 $C(u, v) = 0$,则表示 $(u, v)$ 不存在在网络中。</li>
+<li>如果原网络中不存在边 $(u, v)$,则令 $C(u, v) = 0$.</li>
+<li>对于每条边 $(u, v)$, 有一个流量 $f(u, v)$。</li>
+</ol>
+<p>注意,网络流必须满足流量平衡,即流入的等于流出的.</p>
+<a id="more"></a>
+
+<h3 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h3><p>最大流算法有$EK$,$Dinic$,$ISAP$和$HLPP$,$HLPP$的上界卡的比较紧,所以这里介绍$ISAP$和$Dinic$</p>
+<p><del>其实有<code>HLPP</code>,因为我发现自己的<code>ISAP</code>过不了加强版/kel.</del></p>
+<h4 id="Dinic"><a href="#Dinic" class="headerlink" title="Dinic"></a>Dinic</h4><p>Dinic算法就是先找出残量网络中的$s \to t$路径然后增广.</p>
+<p><a href="https://loj.ac/submission/722309" target="_blank" rel="noopener">代码实现</a></p>
+<h4 id="ISAP"><a href="#ISAP" class="headerlink" title="ISAP"></a>ISAP</h4><p>考虑说每次$BFS$找残量网络中的路径很麻烦是吧,考虑优化这个过程.</p>
+<ol>
+<li>反着求出每一个点的深度.</li>
+<li>每一次增广就把深度增加.</li>
+<li>出现断层就退出.</li>
+</ol>
+<p>这样子跑的$BFS$只有一次,可以优化.</p>
+<p><a href="https://loj.ac/submission/722317" target="_blank" rel="noopener">代码实现</a></p>
+<h4 id="HLPP"><a href="#HLPP" class="headerlink" title="HLPP"></a>HLPP</h4><p>最高标号+预流推进,名字听着就是算法过程.</p>
+<ol>
+<li>首先bfs求出所有点的$height$,判断$s,t$是否连通并且将$h[s]=n$.</li>
+<li>更新$gap$</li>
+<li>推$s$,防止一开始就出现$Inf$的边.</li>
+<li>推队列中的点</li>
+</ol>
+<p>最后答案就是$t$中的流量.</p>
+<p>$HLPP$其实只要掌握了原理写起来还是不难<del>背诵大赛</del></p>
+<p><a href="https://loj.ac/submission/722559" target="_blank" rel="noopener">代码实现</a></p>
+<p><a href="https://www.luogu.com.cn/blog/105496/solution-p4722" target="_blank" rel="noopener">学习博客</a></p>
+<h3 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h3><p>将拥有源点 $S$ 和汇点 $T$ 的结点集合 $V$ 分成两个子集 $s$ 和 $t$,当且仅当 $S$ 属于$ s $且$ T$属于$t$时,称这种分割为$ S − T$割。</p>
+<p>$s − t $的容量$ C[s, t] $指的是所有从$ s$到$ t $的边的容量之和。具体公式如下:</p>
+<p>$$<br>C[s,t]=\sum_{(u,v) \in E,u \in s,v \in t}C[u][v]<br>$$</p>
+<p>最小割,就是所有可能的 $S − T$ 割中容量最小的 $S − T$ 割。</p>
+<p>最小割=最大流.</p>
+<p>用最大流最小割仅仅能做到求出最小割的具体数值,但是如果题目要求的是求出最小割的<br>方案,那么还需要进一步的操作。</p>
+<p>我们可以利用 dinic 算法的分层图,如果一条边$ (u,v) $已经满载,并且$ u $和$ S$联通,$v$和$S$不连通,则把它输出,最后输出的所有边就是一个可行的最小割的方案,其实就是割的定义式.</p>
+<p>这个问题的拓展还有:</p>
+<ol>
+<li>求哪些边一定在最小割中:把这条边退流,删除这条边后重新寻找的增广路流量与这条边原来的流量相同</li>
+<li>求哪些边可能在最小割中:对某条边退流后重新找增广路可以使得这条边满载且$ u $和$ S $联通,$v $不和$ S $联通.</li>
+</ol>
+<h3 id="费用流"><a href="#费用流" class="headerlink" title="费用流"></a>费用流</h3><h4 id="EK"><a href="#EK" class="headerlink" title="EK"></a>EK</h4><p>众所周知,就是$SPFA$.</p>
+<p><a href="https://loj.ac/submission/722571" target="_blank" rel="noopener">代码实现</a></p>
+<h4 id="zkw费用流"><a href="#zkw费用流" class="headerlink" title="zkw费用流"></a>zkw费用流</h4><p>不会,鸽了.</p>
+<h3 id="二分图的一些东西"><a href="#二分图的一些东西" class="headerlink" title="二分图的一些东西"></a>二分图的一些东西</h3><ul>
+<li><strong>可能</strong>在二分图中的点:他是来搞笑的,所有有度数的点都是可能在最大匹配中的点.</li>
+<li>一定在二分图最大匹配中的点:先求任意一个最大匹配$ S$,那么一定在二分图最大匹配中的点一定是$ S $的子集.源点能到达的左侧的点,和能到达汇点的右侧的点就都不是一定在最大匹配中,即在残量网络中可以找到替代路径,剩下的在$ S $中的点就一定在最大匹配中.</li>
+<li>可能在二分图最大匹配中的边:先求任意一个最大匹配$ S$.$S$中的边都为可能在二分图最大匹配中的边,然后考虑其它边,如果一条未匹配边的两个端点中有一个不在$S$中,则这条边可能在最大匹配中,否则,如果想把这条边加入匹配,则需要一个交错环,那么我们把所有边定向,匹配边从右往左,非匹配边从左往右,如果一条边两个端点在同一个$SCC$中则也可能在最大匹配中.</li>
+<li>一定在二分图最大匹配中的边:先求任意一个最大匹配$S$.那么$S$中的边中不能被非$S$的边替代的边就是一定在最大匹配中的边,所以方法也是类似的.从所有不在$S$中的点出发,能够访问到的边就都不是一定在最大匹配中的边.(如果是从左侧的点出发,那么从左到右走非匹配边,从右到左走匹配边)然后再缩点,如果$S$中某条边两段在同一个$SCC$中也不一定在最大匹配中.</li>
+</ul>
+<hr>
+<ul>
+<li>可能在最小割中的边:首先把所有还有流量的边拿出来跑$tarjan$缩强连通分量.如果某条满流边的两个端点不在<br>同一个$SCC$中则可能在最小割中。</li>
+<li>一定在最小割中的边:首先把所有还有流量的边拿出来跑$tarjan$缩强连通分量.如果某条满流边的两个端点$(u,v)$满足$s$和$u$在同一个强连通分量,$v$和$t$在同一个强连通分量则这条边一定在最小割中。</li>
+</ul>
+<p>这两个的证明考虑<strong>可能在</strong>就是对于一条边减流量那么最小割会减小;<strong>一定在</strong>就是对于这条边加流量,那么最小割会增大.</p>
+<h2 id="网络流建模"><a href="#网络流建模" class="headerlink" title="网络流建模"></a>网络流建模</h2>]]></content>
+      <categories>
+        <category>Summary</category>
+      </categories>
+      <tags>
+        <tag>网络流</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>圣杯之战前的做题记录</title>
+    <url>/2020/01/15/%E5%9C%A3%E6%9D%AF%E4%B9%8B%E6%88%98%E5%89%8D%E7%9A%84%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="BZOJ2127-happiness"><a href="#BZOJ2127-happiness" class="headerlink" title="BZOJ2127 happiness"></a>BZOJ2127 happiness</h2><p>简单的网络流建模,经典8字模型.<br>考虑设八字中的四条边然后解一个四元一次方程组即可.</p>
+<h2 id="BZOJ3894-文理分科"><a href="#BZOJ3894-文理分科" class="headerlink" title="BZOJ3894 文理分科"></a>BZOJ3894 文理分科</h2><p>对于每一个学生,建两个新点分别表示全选文和全选理然后直接跑割即可.</p>
+<h2 id="NOI2006-最大获利"><a href="#NOI2006-最大获利" class="headerlink" title="[NOI2006]最大获利"></a>[NOI2006]最大获利</h2><p>简单题,直接割.</p>
+<h2 id="「HNOI2013」切糕"><a href="#「HNOI2013」切糕" class="headerlink" title="「HNOI2013」切糕"></a>「HNOI2013」切糕</h2><p>经典题,考虑如果没有限制就是直接对于每一个点拆成$r$个点然后高度连边直接割.<br>有限制的话,考虑对于任意相邻点的差距为$D$的高度连无穷边表示不合法.自己yy一下连边方向即可.</p>
+<h2 id="NOI2008-志愿者招募"><a href="#NOI2008-志愿者招募" class="headerlink" title="[NOI2008]志愿者招募"></a>[NOI2008]志愿者招募</h2><p>神仙题!<br>考虑将限制关系用不等式的方法搞出来,然后设一手流量将不等式转成等式.<br>差分之后发现可以用流量平衡写出来费用流即可.</p>
+<h2 id="ZJOI2013-防守战线"><a href="#ZJOI2013-防守战线" class="headerlink" title="[ZJOI2013]防守战线"></a>[ZJOI2013]防守战线</h2><p><del>求助如何熟练掌握线性规划那套理论…</del><br>$$<br>max(c^Tx|Ax \ge b)=min(b^Ty|A^Ty \ge c)<br>$$<br>所以考虑写成<code>[NOI2008]志愿者招募</code>的形式后发现他是行连续无法差分,转置即可.<br>转完之后就变成了$max(c^Tx|A^Tx \ge b^T)$,这就可以差分了.<br>然后就是<code>[NOI2008]志愿者招募</code>搞一个最大费用流了.<br>这题卡$EK$,所以要学学$zkw$费用流.</p>
+<h2 id="最小费用流"><a href="#最小费用流" class="headerlink" title="最小费用流"></a>最小费用流</h2><p>模板题</p>
+<h2 id="最大流加强版"><a href="#最大流加强版" class="headerlink" title="最大流加强版"></a>最大流加强版</h2><p>$HLPP$板子题</p>
+<h2 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h2><p>模板题</p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>plan</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>省选前的细言碎语</title>
+    <url>/2020/01/15/%E7%9C%81%E9%80%89%E5%89%8D%E7%9A%84%E7%BB%86%E8%A8%80%E7%A2%8E%E8%AF%AD/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><del>CSP翻车的蒟蒻没有省选的人权</del><br>希望能苟到一个D吧.</p>
+<a id="more"></a>
+
+<p>以下文字来于$cjyyb$的博客.</p>
+<p>突然意识到有一些题目的计划，才可以减少大量查水表或者找题目的时间。<br>所以我决定这样子处理。<br><a href="https://www.luogu.com.cn/problem/list?tag=48%7C35&page=1" target="_blank" rel="noopener">决定按照这个链接做</a></p>
+<p>当然不可能只做省选题了。<br>需要适时候夹杂一些其他的题目。<br>比如$agc/arc/cf$的题目，以及$loj$上的一些省的集训题目，还有$uoj$的各种$round$的题目。<br>大块大块的做题记录就在这里记录一下，省选后再来看结果，至少努力过就不曾后悔了不是吗？</p>
+<p>首先先是省选题的记录，然后有比赛的记录，做到每周至少完成一整场$CF$或者$Atcoder$比赛的题解。</p>
+<h2 id="知识点漏缺"><a href="#知识点漏缺" class="headerlink" title="知识点漏缺"></a>知识点漏缺</h2><ul>
+<li><input disabled="" type="checkbox"> zkw费用流</li>
+<li><input disabled="" type="checkbox"> 网络流</li>
+</ul>
+<h2 id="比赛记录"><a href="#比赛记录" class="headerlink" title="比赛记录"></a>比赛记录</h2><h2 id="比赛题解"><a href="#比赛题解" class="headerlink" title="比赛题解"></a>比赛题解</h2><h2 id="做题记录"><a href="#做题记录" class="headerlink" title="做题记录"></a>做题记录</h2><p><a href="../圣杯之战前的做题记录">康这里查水表</a></p>
+]]></content>
+      <categories>
+        <category>不懂</category>
+      </categories>
+      <tags>
+        <tag>清单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性代数学习笔记1.0</title>
+    <url>/2020/01/15/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01-0/</url>
+    <content><![CDATA[<p>文章较长,请耐心食用</p>
+<a id="more"></a>
+
+<h2 id="0-前言与一些注意事项与定义"><a href="#0-前言与一些注意事项与定义" class="headerlink" title="0 前言与一些注意事项与定义"></a>0 前言与一些注意事项与定义</h2><p><del>听说明天要讲拟阵,然后就搞一下线性代数.</del></p>
+<p>大多数内容来自$wfj_2048$的$ppt$</p>
+<p>在这里先解释一下左乘和右乘是啥,$A$左乘$B$就是$AB$,$A$右乘$B$就是$BA$</p>
+<p><del>线性变换是乱七八糟凑.</del>差不多这么理解即可.</p>
+<p>$\mathbb{R^n}$表示$n$维$R$域的空间.$dim\ X$表示$X$空间的维数.</p>
+<h2 id="1-矩阵"><a href="#1-矩阵" class="headerlink" title="1 矩阵"></a>1 矩阵</h2><h3 id="1-0-矩阵的基本概念"><a href="#1-0-矩阵的基本概念" class="headerlink" title="1.0 矩阵的基本概念"></a>1.0 矩阵的基本概念</h3><p>首先需要了解基本的东西,矩阵.</p>
+<p>定义一个矩阵$A$有$m$行$n$列,那么可以写成:<br>$$<br>\begin{matrix}<br>A_{1,1}\ A_{1,2}\cdots A_{1,n}\<br>A_{2,1}\ A_{2,2}\cdots A_{2,n}\<br>\ \ \ \ \ \ \ \vdots \<br>A_{m,1}\ A_{m,2}\cdots A_{m,n}\<br>\end{matrix}<br>$$<br>我们还可以定义矩阵的数乘为$\lambda A$,相当于是给矩阵中所有的元素都乘上一个数字.</p>
+<p>然后矩阵有如下性质:</p>
+<ol>
+<li>结合率: $ABC=A(BC)$</li>
+<li>数乘结合律: $\beta(\lambda A)=\beta\lambda A$</li>
+<li>…(自行百度)</li>
+</ol>
+<p>有一些特殊的矩阵,我们称之为$I$,$0$.</p>
+<ul>
+<li>$I$,单位矩阵,就是对角线全是$1$,其他位置都是$0$的矩阵.</li>
+<li>$0$,零矩阵,就是所以位置都是$0$的矩阵.</li>
+</ul>
+<h3 id="1-1-矩阵的运算"><a href="#1-1-矩阵的运算" class="headerlink" title="1.1 矩阵的运算"></a>1.1 矩阵的运算</h3><p>加法就是对应位置加,减法就是对应位置减,<del>乘法就是对应位置乘</del></p>
+<p>矩阵的乘法,有如下定义:$A$矩阵为$(m,n)$,$B$矩阵为$(n,p)$.$C=A*B$</p>
+<ol>
+<li>$C(i,j)$为$A$的第$i$个行向量内积$B$的第$j$个列向量.</li>
+<li>$C$的第$i$行向量又等于$A$的第$i$行向量*$B$。</li>
+<li>所以$C$的第$i$列向量又等于$A$*($B$的第$i$列向量)。</li>
+<li>最难理解的一条:$C = \sum_{i=1}^n a_i\times b_i$($a_i$为$A$的第$i$列形成的矩阵,$b_i$为$B$的第$i$行形成的矩阵,式中$\times$为矩阵乘法)</li>
+</ol>
+<p>第2,3条直接把矩阵乘法的定义式拆开就是了.</p>
+<p>第4条的话,直接把矩阵乘法拆开然后交换一下$\sum$就行了.</p>
+<p><del>反正都是暴力拆就对了</del></p>
+<h3 id="1-2-特殊的矩阵变化与矩阵"><a href="#1-2-特殊的矩阵变化与矩阵" class="headerlink" title="1.2 特殊的矩阵变化与矩阵"></a>1.2 特殊的矩阵变化与矩阵</h3><h4 id="1-2-1-特殊矩阵"><a href="#1-2-1-特殊矩阵" class="headerlink" title="1.2.1 特殊矩阵"></a>1.2.1 特殊矩阵</h4><p>特殊矩阵有<strong>倍加矩阵,倍乘矩阵和对换矩阵</strong>.</p>
+<h5 id="倍加矩阵-P"><a href="#倍加矩阵-P" class="headerlink" title="倍加矩阵: P"></a>倍加矩阵: P</h5><p>$$<br>\begin{bmatrix}<br>1&amp; 0&amp;0&amp;\cdots &amp;0\newline<br>0&amp; 1&amp; 0&amp;\cdots &amp;0\newline<br>0&amp; c&amp; 1&amp;\cdots &amp;0\newline<br>&amp;&amp;\vdots\newline<br>0&amp; 0&amp; 0&amp;\cdots &amp;1\newline<br>\end{bmatrix}<br>$$<br>然后这个矩阵中第$(i,j)$个数字为$c$,主对角线上为$1$,其他位置都是$0$.</p>
+<h5 id="倍乘矩阵-C"><a href="#倍乘矩阵-C" class="headerlink" title="倍乘矩阵: C"></a>倍乘矩阵: C</h5><p>$$<br>\begin{bmatrix}<br>1&amp; 0&amp; 0\cdots&amp;0\newline<br>0&amp; c&amp; 0\cdots&amp;0\newline<br>0&amp; 0&amp; 1\cdots&amp;0\newline<br>&amp;&amp;\vdots\newline<br>0&amp; 0&amp; 0\cdots&amp;1\newline<br>\end{bmatrix}<br>$$<br>然后这个矩阵中主对角线上,除一个位置为$c$,其他位置为$1$,不在主对角线上的数字都是$0$.</p>
+<h5 id="对换矩阵-E"><a href="#对换矩阵-E" class="headerlink" title="对换矩阵: E"></a>对换矩阵: E</h5><p>$$<br>\begin{bmatrix}<br>1&amp; 0&amp; 0\cdots&amp;0\newline<br>0&amp; 0&amp; 1\cdots&amp;0\newline<br>0&amp; 1&amp; 0\cdots&amp;0\newline<br>&amp;&amp;\vdots\newline<br>0&amp; 0&amp; 0\cdots&amp;1\newline<br>\end{bmatrix}<br>$$<br>这个矩阵相当于是交换$I$矩阵的两行.</p>
+<h4 id="1-2-2-特殊的矩阵变换"><a href="#1-2-2-特殊的矩阵变换" class="headerlink" title="1.2.2 特殊的矩阵变换"></a>1.2.2 特殊的矩阵变换</h4><p>考虑上述的特殊矩阵有啥用,特殊矩阵左乘一个矩阵就是做初等行变换,右乘一个矩阵就是做初等列变换.</p>
+<p>$a_i+a_j*c$就是倍加矩阵$E(i,j)$写一个$c$.</p>
+<p>倍乘矩阵$C(i,i)$为$c$表示把第$i$行乘$c$.</p>
+<p>对换矩阵就是交换.</p>
+<h3 id="1-3-逆矩阵"><a href="#1-3-逆矩阵" class="headerlink" title="1.3 逆矩阵"></a>1.3 逆矩阵</h3><p>对于方阵而言,存在$AB=I$,称$B$为$A$的逆矩阵,记做$A^{-1}$,$A^{-1}A=AA^{-1}=I$.</p>
+<p><strong>非方阵没有逆矩阵.</strong></p>
+<p>$(AB)^{-1}=B^{-1}A^{-1}$.</p>
+<p>证明可以两边同时乘$A,B$.</p>
+<ol>
+<li>若$A$可逆, 且$A\vec x=\vec b$,则 $\vec x=A^{-1} \vec b$。故对任意$\vec b$,方程总有唯一解。</li>
+<li>对于$\vec b = \vec 0$,方程只有零解。</li>
+<li>若$A$可逆,则$A$总能通过初等行变换变为单位阵,可结合高斯约旦消元理解.</li>
+<li>矩阵可逆,当且仅当它消元以后有$n$个主元,满秩即可逆(满秩阵和可逆阵互为充要条件).</li>
+</ol>
+<p>初等行变换不改变矩阵的可逆性,且若$A,B$可逆,$AB$可逆.</p>
+<h3 id="1-4-转置矩阵"><a href="#1-4-转置矩阵" class="headerlink" title="1.4 转置矩阵"></a>1.4 转置矩阵</h3><p>矩阵$A$的转置为$A^T$,定义为$A^T(i,j)=A(j,i)$</p>
+<p>$(AB)^T=B^TA^T$,这个比较显然.</p>
+<p>$A^{-1^T}=A^{T^{-1}}$</p>
+<p>这个证明考虑将$A=A,B=A^{-1}$带入$(AB)^T=B^TA^T$,那么有</p>
+<p>$$<br>\begin{align}<br>(AA^{-1})^T&amp;=(A^{-1})^TA^T\<br>I^T&amp;=A^{-1^T}A^T\<br>I&amp;=A^{-1^T}A^T\<br>A^{T^{-1}}&amp;=A^{-1^T}<br>\end{align}<br>$$</p>
+<p>简单证明即可.</p>
+<ol>
+<li>$\vec x\cdot \vec y=\vec x^T\vec y$左边是内积,右边是矩阵乘法。重点注意这个形式,在线代的理解与证明中非常有用。</li>
+</ol>
+<p>   <strong>定义:对于$n$阶方阵,若$A=A^T$,则$A$为对称阵;若$A=−A^T$,则$A$为反对称阵。</strong></p>
+<ol start="2">
+<li><p>任一方阵都能唯一地表示成一个对称阵与一个反对称阵之和.证明构造即可,类似高数上奇函数偶函数那个证明过程.</p>
+</li>
+<li><p>反对称阵的对角元均为0.这个证明直接参照定义即可.</p>
+</li>
+<li><p>$AA^T$以及$A^TA$都是对称阵,这个也是根据定义证明.</p>
+</li>
+</ol>
+<h2 id="2-向量空间"><a href="#2-向量空间" class="headerlink" title="2 向量空间"></a>2 向量空间</h2><h3 id="2-1-向量空间-线性空间"><a href="#2-1-向量空间-线性空间" class="headerlink" title="2.1 向量空间(线性空间)"></a>2.1 向量空间(线性空间)</h3><p>若存在一个集合$V$与域$P$,使得</p>
+<ol>
+<li>$V$中有加法,对应唯一的和.</li>
+<li>$V$中有数量乘,对应唯一的乘积.</li>
+<li>加法与数乘满足如下八条性质:</li>
+</ol>
+<p><img src="/home/fexuile/%E6%A1%8C%E9%9D%A2/fexuile/NOIP%E5%90%8E%E7%9A%84/%E5%AF%92%E5%81%87%E9%9B%86%E8%AE%AD/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E6%80%A7%E8%B4%A8.png" alt="向量空间性质"></p>
+<p>那么称$V$为$P$上的一个向量空间.</p>
+<p><strong>第3条即满足加有交换律,结合律,与乘有分配率,有0元,有负元(相反数),有单位元,数乘有结合律,分配率.</strong></p>
+<h3 id="2-2-子空间"><a href="#2-2-子空间" class="headerlink" title="2.2 子空间"></a>2.2 子空间</h3><p>线性空间$V$的一个子集$W$,满足$W$中存在零向量,W对加法和数乘封闭,则称$W$为$V$的子空间。显然子空间也是线性空间。</p>
+<p>封闭的意思就是保证乘完后还在$W$内.</p>
+<p>对于一个$A(m\ by \ n)$,那么有:</p>
+<ol>
+<li>行空间:矩阵$A$的行张成的空间,记为$C(A^T)$.通俗来说就是$A$的行向量线性变换组成的空间.</li>
+<li>列空间:矩阵$A$的列张成的空间,记为$C(A)$.通俗来说就是$A$的列向量线性变换组成的空间.</li>
+<li>(右)零空间:满足$A\vec x=\vec 0$的所有解张成的空间.</li>
+<li>左零空间:满足$A^T\vec x=\vec 0$的所有解张成的空间.</li>
+<li>行空间和零空间为$\mathbb{R^m}$ 的子空间,列空间和左零空间为$\mathbb{R^n}$的子空间。</li>
+<li>若$A\vec x=\vec b$有解,则$\vec b \in C(A)$;若$A^T\vec x=\vec b$有解,则$b\in C(A^T )$.这个证明的话考虑解相当于是列空间的线性变换.</li>
+</ol>
+<h2 id="3-线性…"><a href="#3-线性…" class="headerlink" title="3 线性…"></a>3 线性…</h2><h3 id="3-1-线性相关与线性无关"><a href="#3-1-线性相关与线性无关" class="headerlink" title="3.1 线性相关与线性无关"></a>3.1 线性相关与线性无关</h3><p>若$k_1\vec v_1+k_2\vec v_2+…+k_n\vec v_n=\vec 0$的解当且仅当$\forall k_i=0$,那么这些向量线性无关,否则称它们线性相关.</p>
+<p>若一组向量线性无关,且能表示出一个线性空间的所有向量,那么这组向量就称为这个线性空间的一组基。</p>
+<ol>
+<li><p><strong>若一组向量中存在一个向量,其能被其他向量线性表出,则这组向量线性相关.</strong>这个可以通过定义证明.</p>
+</li>
+<li><p><strong>一个线性空间中任意一组基的向量个数相等.</strong>不妨令最小基向量个数为$a$,那么考虑若增加一个向量$\vec x$,这个向量一定能够被之前的向量线性表出,与线性无关矛盾.</p>
+</li>
+<li><p><strong>一个线性空间的维数为该空间任意一组基所含有的向量个数.</strong>感性理解即可.</p>
+</li>
+</ol>
+<h3 id="3-2-线性基"><a href="#3-2-线性基" class="headerlink" title="3.2 线性基"></a>3.2 线性基</h3><p>就提两句话:</p>
+<ol>
+<li>线性基中一个数能有$2^{n-k}$中表示方法,其中$n$是个数,$k$是线性基中的个数.</li>
+<li>线性基是一个只有$0,1$元素的线性空间.</li>
+</ol>
+<h2 id="4-解方程"><a href="#4-解方程" class="headerlink" title="4 解方程"></a>4 解方程</h2><h3 id="4-1-解-A-vec-x-vec-0"><a href="#4-1-解-A-vec-x-vec-0" class="headerlink" title="4.1 解$A\vec x=\vec 0$"></a>4.1 解$A\vec x=\vec 0$</h3><h4 id="4-1-0-定义"><a href="#4-1-0-定义" class="headerlink" title="4.1.0 定义"></a>4.1.0 定义</h4><p>首先定义行阶梯形矩阵$U$: $\text{Upper Triangular Matrix}$.</p>
+<ol>
+<li>每个阶梯只有一行,即绝无可能一下子存在中间有零行.</li>
+<li>元素不全为零的行(非零行)的第一个非零元素所在列的下标随着行标的增大而严格增大(列标一定不小于行标).</li>
+<li>元素全为零的行(如果有的话)必在矩阵的最下面几行.</li>
+</ol>
+<p>简化行阶梯形矩阵$R = rref(A)$</p>
+<ol>
+<li>非零行的第一个非零元素全是1.</li>
+<li>且非零行的第一个元素1所在列的其余元素全为零</li>
+</ol>
+<p>来一个练手题,将下面的矩阵化成简化行阶梯形矩阵:</p>
+<p>$$<br>\begin{bmatrix}<br>1&amp; 0&amp; 2&amp; 0&amp; 4\newline<br>1&amp;  1&amp;  5&amp;  0&amp;  9\newline<br>3&amp;  1 &amp; 9&amp;  1&amp;  23\newline<br>1&amp;  1 &amp; 5&amp;  1&amp;  15\newline<br>\end{bmatrix}<br>$$</p>
+<p>答案:<br>$$<br>\begin{bmatrix}<br>1&amp; 0&amp; 2&amp;   0&amp; 4\newline<br>0&amp;  1&amp;3&amp;   0&amp;  5\newline<br>0&amp;  0&amp; 0&amp;  1&amp;  6\newline<br>0&amp;  0&amp; 0&amp;  0&amp;  0\newline<br>\end{bmatrix}<br>$$</p>
+<h4 id="4-1-1-正言"><a href="#4-1-1-正言" class="headerlink" title="4.1.1 正言"></a>4.1.1 正言</h4><p>$N(A)=N(U)=N(R)$,因为初等行变换不改变矩阵零元的情况.</p>
+<p>解$A\vec x=\vec 0$,先将$A$化为$rref(A)$.</p>
+<p>可以发现,所有非主元都能自由取值。那么我们的解向量显然由$n$-主元数个线性无关的向量组成。</p>
+<p>故$A \vec x=\vec 0$的通解为这些向量的线性组合。所以$dim\ N(A)=n-$主元个数.同时可以发现,非主元所在的列是其前面的列的线性组合,故$dim\ C(A) =$主元个数.</p>
+<p>故:$dim\ N(A) +dim\ C(A) = n$。</p>
+<p>显然$rref(A)$的非零行数对应着$C(A^T)$的维数.可以发现其非零行数等于主元个数,故$dim\  C(A^T)=dim\ C(A)$.</p>
+<h3 id="4-2-秩"><a href="#4-2-秩" class="headerlink" title="4.2 秩"></a>4.2 秩</h3><p>称一个矩阵的主元个数为它的秩,记为$r(A)$.</p>
+<ol>
+<li>$r(A) = dim\ C(A) = dim\ C(A^T) = r(A^T), r(A) \le min(m, n)$.</li>
+<li>$r(AB) \le min(r(A), r(B))$.</li>
+<li>矩阵左乘或右乘一个可逆阵不改变秩.</li>
+<li>A为$m\times n$矩阵,B为$n\times p$矩阵,则$r(AB) \ge  r(A) + r(B) − n$.<del>老邬都没有证,我怎么会证.</del></li>
+<li>满秩方阵可逆(之前提过).</li>
+</ol>
+<p>考虑第2条性质的证明:</p>
+<p>首先证明$r(AB)\le r(B)$.<br>$$<br>AB=\begin{bmatrix}Ab_1,Ab_2,…,Ab_p\end{bmatrix}<br>$$<br>考虑这是$B$的列向量的空间组合,那么显然基的大小不会变大.</p>
+<p>又因为$r(A)=dim\ C(A)$,所以$r(AB)\le r(B)$.</p>
+<p>基本相同的道理可以证明$r(AB) \le r(A)$,所以$r(AB) \le \min(r(A),r(B))$.</p>
+<h3 id="4-3-解-A-vec-x-vec-b"><a href="#4-3-解-A-vec-x-vec-b" class="headerlink" title="4.3 解$A\vec x=\vec b$"></a>4.3 解$A\vec x=\vec b$</h3><p>解$A\vec x=\vec b$,先将$A$化为$U$,同时$\vec b$进行同样的初等行变换,然后判断是否有解.</p>
+<p>判断有解就是类似判断一元一次方程的解一样.</p>
+<p>然后再化为$rref(A)$,此时令非主元都为$0$,可以直接得到一个特解.</p>
+<p>然后再求出$A\vec x=\vec 0$的通解。那么它的解可表示为特解+通解的线性组合.</p>
+<ol>
+<li>$r(A)=m$的矩阵称为行满秩矩阵,该矩阵$C(A) = \mathbb{R^m}$.易证.</li>
+<li>$r(A)=n$的矩阵称为列满秩矩阵,该矩阵$N(A) = {\vec 0}$.易证.</li>
+</ol>
+<p>至此,线代基础告一段落,行列式为下一部分内容</p>
+<p><del>抱歉它鸽了</del>.</p>
+]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>线性代数</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>退役后的做题记录1.0</title>
     <url>/2019/11/19/%E9%80%80%E5%BD%B9%E5%90%8E%E7%9A%84%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%951-0/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>$\texttt{CSP2019}$后就退役了.<del>又要被yybD了</del></p>
@@ -490,7 +765,7 @@
 <h2 id="番剧"><a href="#番剧" class="headerlink" title="番剧"></a>番剧</h2><p><del>我该不该说我是在机房康完的?</del></p>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> 刀剑神域</li>
-<li><input disabled="" type="checkbox"> 刺客伍六七</li>
+<li><input checked="" disabled="" type="checkbox"> 刺客伍六七</li>
 <li><input disabled="" type="checkbox"> 埃罗芒阿老师</li>
 <li><input disabled="" type="checkbox"> 天气之子</li>
 <li><input disabled="" type="checkbox"> 你的名字</li>
