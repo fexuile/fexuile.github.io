@@ -21,7 +21,7 @@ repository               : "fexuile/fexuile.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Jinhao Guo"
   # pronouns         : "he/him" # example: "she/her"  
   bio              : "Undergraduator at PKU"
