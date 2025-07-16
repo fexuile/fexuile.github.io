@@ -5,4 +5,4 @@ permalink: /publications/
 author_profile: true
 ---
 
-(† denotes Equal Contribution)
+($\dagger$ denotes Equal Contribution)
