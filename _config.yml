@@ -25,9 +25,9 @@ author:
   avatar           : "profile.jpg"
   name             : "Jinhao Guo"
   pronouns         : # example: "she/her"
-  bio              : "PhD at PKU"
+  bio              : "PhD student at Peking University"
   location         : "Beijing"
-  employer         : "Peking University"
+  # employer         : "Peking University"
   uri              : # URL
   email            : "fexuile@gmail.com"
 
