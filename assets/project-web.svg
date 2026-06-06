@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Interactive notes thumbnail</title>
+  <desc id="desc">A clean browser window with nodes and annotations.</desc>
+  <rect width="800" height="600" fill="#f7f7f2"/>
+  <rect x="88" y="78" width="624" height="444" rx="18" fill="#ffffff" stroke="#d6d9de" stroke-width="4"/>
+  <rect x="88" y="78" width="624" height="58" rx="18" fill="#eef3f8"/>
+  <circle cx="128" cy="107" r="8" fill="#d95f59"/>
+  <circle cx="154" cy="107" r="8" fill="#d6a54c"/>
+  <circle cx="180" cy="107" r="8" fill="#62a86b"/>
+  <g stroke="#31445f" stroke-width="5" stroke-linecap="round">
+    <path d="M224 330h120l72-92h148"/>
+    <path d="M344 330l72 94h148"/>
+  </g>
+  <g fill="#e9f2ff" stroke="#6e92bd" stroke-width="4">
+    <rect x="150" y="286" width="148" height="88" rx="12"/>
+    <rect x="344" y="194" width="148" height="88" rx="12"/>
+    <rect x="502" y="286" width="148" height="88" rx="12"/>
+    <rect x="344" y="382" width="148" height="88" rx="12"/>
+  </g>
+  <g fill="#31445f">
+    <rect x="182" y="324" width="84" height="12" rx="6"/>
+    <rect x="376" y="232" width="84" height="12" rx="6"/>
+    <rect x="534" y="324" width="84" height="12" rx="6"/>
+    <rect x="376" y="420" width="84" height="12" rx="6"/>
+  </g>
+</svg>
