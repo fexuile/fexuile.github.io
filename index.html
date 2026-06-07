@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jinhao Guo's personal academic homepage.">
   <title>Jinhao Guo</title>
-  <link rel="stylesheet" href="stylesheet.css?v=20260607-gallery">
+  <link rel="stylesheet" href="stylesheet.css?v=20260607-gallery-preview">
 </head>
 
 <body>
@@ -124,32 +124,41 @@
     <section class="section">
       <h2>Gallery</h2>
       <div class="gallery-grid">
-        <figure class="gallery-item">
-          <a href="assets/basketball/Weixin%20Image_20260607224105_139_122.jpg">
-            <img src="assets/basketball/Weixin%20Image_20260607224105_139_122.jpg" alt="Playing basketball" loading="lazy">
-          </a>
-          <figcaption>Basketball</figcaption>
-        </figure>
-        <figure class="gallery-item">
-          <a href="assets/basketball/Weixin%20Image_20260607224111_140_122.jpg">
-            <img src="assets/basketball/Weixin%20Image_20260607224111_140_122.jpg" alt="Basketball court moment" loading="lazy">
-          </a>
-          <figcaption>Basketball</figcaption>
-        </figure>
-        <figure class="gallery-item">
-          <a href="assets/travel/Xiangjiang_bike/1.jpg">
-            <img src="assets/travel/Xiangjiang_bike/1.jpg" alt="Xiangjiang bike trip" loading="lazy">
-          </a>
-          <figcaption>Xiangjiang Bike</figcaption>
-        </figure>
-        <figure class="gallery-item">
-          <a href="assets/travel/Xiangjiang_bike/2.jpg">
-            <img src="assets/travel/Xiangjiang_bike/2.jpg" alt="Xiangjiang bike trip scenery" loading="lazy">
-          </a>
-          <figcaption>Xiangjiang Bike</figcaption>
-        </figure>
+        <button class="gallery-album" type="button" data-album="basketball" aria-label="Open Basketball gallery">
+          <span class="album-cover">
+            <img src="assets/basketball/Weixin%20Image_20260607224105_139_122.jpg" alt="" loading="lazy">
+          </span>
+          <span class="album-meta">
+            <span class="album-title">Basketball</span>
+            <span class="album-count">2 photos</span>
+          </span>
+        </button>
+        <button class="gallery-album" type="button" data-album="xiangjiang-bike" aria-label="Open Xiangjiang Bike gallery">
+          <span class="album-cover">
+            <img src="assets/travel/Xiangjiang_bike/1.jpg" alt="" loading="lazy">
+          </span>
+          <span class="album-meta">
+            <span class="album-title">Xiangjiang Bike</span>
+            <span class="album-count">2 photos</span>
+          </span>
+        </button>
       </div>
     </section>
+
+    <div class="gallery-preview" aria-hidden="true">
+      <div class="gallery-backdrop" data-gallery-close></div>
+      <section class="preview-panel" role="dialog" aria-modal="true" aria-labelledby="preview-title" tabindex="-1">
+        <button class="preview-close" type="button" data-gallery-close aria-label="Close preview">&times;</button>
+        <h3 id="preview-title" class="preview-title"></h3>
+        <div class="preview-stage">
+          <button class="preview-nav preview-prev" type="button" data-gallery-prev aria-label="Previous photo">&#8249;</button>
+          <img class="preview-image" src="" alt="">
+          <button class="preview-nav preview-next" type="button" data-gallery-next aria-label="Next photo">&#8250;</button>
+        </div>
+        <p class="preview-caption"></p>
+        <div class="preview-thumbs" aria-label="Photo thumbnails"></div>
+      </section>
+    </div>
 
     <footer>
       <p>
@@ -160,5 +169,6 @@
       </p>
     </footer>
   </main>
+  <script src="gallery.js?v=20260607-gallery-preview"></script>
 </body>
 </html>
