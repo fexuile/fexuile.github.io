@@ -201,6 +201,36 @@ p {
   white-space: nowrap;
 }
 
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gallery-item {
+  margin: 0;
+}
+
+.gallery-item a {
+  display: block;
+  background: var(--soft);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.gallery-item figcaption {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 footer {
   border-top: 1px solid var(--rule);
   color: var(--muted);
@@ -242,6 +272,10 @@ footer {
   .news-list li {
     grid-template-columns: 84px minmax(0, 1fr);
     gap: 10px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
 }
