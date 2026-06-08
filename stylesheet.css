@@ -231,7 +231,7 @@ p {
   inset-block: 0;
   right: 0;
   z-index: -1;
-  width: 50%;
+  width: 25%;
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -510,10 +510,6 @@ footer {
   .experience-card {
     min-height: 0;
     padding: 12px 16px;
-  }
-
-  .experience-bg {
-    width: 54%;
   }
 
   .experience-card h3 {
