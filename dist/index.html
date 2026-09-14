@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jinhao Guo's personal academic homepage.">
   <title>Jinhao Guo</title>
-  <link rel="stylesheet" href="stylesheet.css?v=20260914-editorial">
+  <link rel="stylesheet" href="stylesheet.css?v=20260914-original-refined">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
       </section>
 
       <aside class="portrait">
-        <img src="assets/profile.svg" alt="Jinhao Guo profile photo" width="480" height="480">
+        <img src="assets/profile.svg" alt="Jinhao Guo profile photo">
       </aside>
     </header>
 
@@ -50,7 +50,7 @@
         <li>
           <time datetime="2026-04">April 2026</time>
           <span>
-            One paper is conditionally accepted to OSDI 2026.
+            Merlin is conditionally accepted to OSDI 2026.
           </span>
         </li>
       </ul>
@@ -58,16 +58,16 @@
 
     <section class="section">
       <h2>Research</h2>
-      <p class="research-intro">
+      <p>
         I'm now devoting myself to Hardware-Software Co-Design, and have interests in ML Systems. Some papers are <span class="highlight-word">highlighted</span>.
       </p>
 
       <article class="paper paper-highlight">
-        <a class="paper-thumb" href="papers/osdi26-li-liujia.pdf" aria-label="Merlin: An Efficient Adaptive Cache Eviction Algorithm via Fine-Grained Characterization">
+        <div class="paper-thumb">
           <img src="assets/research/project-systems.svg" alt="systems scheduling teaser">
-        </a>
+        </div>
         <div class="paper-info">
-          <h3><a href="papers/osdi26-li-liujia.pdf">Merlin: An Efficient Adaptive Cache Eviction Algorithm via Fine-Grained Characterization</a></h3>
+          <h3>Merlin: An Efficient Adaptive Cache Eviction Algorithm via Fine-Grained Characterization</h3>
           <p class="authors">
             Liujia Li, <strong>Jinhao Guo</strong>, Yi Fan, Jianyu Wu,
             Zhenlin Wang, Jie Zhang, Yuval Tamir, Xiaolin Wang, Yingwei Luo,
@@ -83,11 +83,11 @@
       </article>
 
       <article class="paper">
-        <a class="paper-thumb" href="#" aria-label="Cachence: Fine-Grained Cache Partitioning in Both Space and Time">
+        <div class="paper-thumb">
           <img src="assets/research/project-ai.svg" alt="experiment analysis teaser">
-        </a>
+        </div>
         <div class="paper-info">
-          <h3><a href="#">Cachence: Fine-Grained Cache Partitioning in Both Space and Time</a></h3>
+          <h3>Cachence: Fine-Grained Cache Partitioning in Both Space and Time</h3>
           <p class="authors">
             Liujia Li, Yuanlong Li, Yiming Yao, Jianyu Wu, Yi Fan,
             <strong>Jinhao Guo</strong>, Liren Zhu, Jie Zhang, Xiaolin Wang,
@@ -105,28 +105,32 @@
       <h2>Experience</h2>
       <div class="experience-list">
         <article class="experience-card">
-          <img class="experience-bg" src="assets/experience/pku.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="experience-logo" src="assets/experience/pku.webp" alt="" aria-hidden="true" width="72" height="72" loading="lazy">
           <div class="experience-content">
-            <h3>Peking University</h3>
-            <p class="experience-date">Sep. 2026 - Present</p>
-            <p class="experience-location">Beijing, China</p>
-            <ul>
-              <li>Ph.D. student in Computer Science</li>
-              <li>Advised by Prof. <a href="https://zhou-diyu.github.io/">Diyu Zhou</a>, Prof. <a href="https://cs.pku.edu.cn/info/1230/2031.htm">Xiaolin Wang</a>, and Prof. <a href="https://cs.pku.edu.cn/info/1219/2000.htm">Yingwei Luo</a></li>
-            </ul>
+            <header class="experience-heading">
+              <h3>Peking University</h3>
+              <p class="experience-date"><time datetime="2026-09">Sep. 2026</time> – Present</p>
+              <p class="experience-location">Beijing, China</p>
+            </header>
+            <div class="experience-description">
+              <p class="experience-role">Ph.D. student in Computer Science</p>
+              <p class="experience-detail">Advised by Prof. <a href="https://zhou-diyu.github.io/">Diyu Zhou</a>, Prof. <a href="https://cs.pku.edu.cn/info/1230/2031.htm">Xiaolin Wang</a>, and Prof. <a href="https://cs.pku.edu.cn/info/1219/2000.htm">Yingwei Luo</a></p>
+            </div>
           </div>
         </article>
 
         <article class="experience-card">
-          <img class="experience-bg" src="assets/experience/pku.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="experience-logo" src="assets/experience/pku.webp" alt="" aria-hidden="true" width="72" height="72" loading="lazy">
           <div class="experience-content">
-            <h3>Peking University</h3>
-            <p class="experience-date">Sep. 2022 - Jul. 2026</p>
-            <p class="experience-location">Beijing, China</p>
-            <ul>
-              <li>School of Electronics Engineering and Computer Science</li>
-              <li>B.S. in Computer Science and Technology</li>
-            </ul>
+            <header class="experience-heading">
+              <h3>Peking University</h3>
+              <p class="experience-date"><time datetime="2022-09">Sep. 2022</time> – <time datetime="2026-07">Jul. 2026</time></p>
+              <p class="experience-location">Beijing, China</p>
+            </header>
+            <div class="experience-description">
+              <p class="experience-role">B.S. in Computer Science and Technology</p>
+              <p class="experience-detail">School of Electronics Engineering and Computer Science</p>
+            </div>
           </div>
         </article>
       </div>
