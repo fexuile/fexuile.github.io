@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Systems thumbnail</title>
+  <desc id="desc">Layered compute blocks connected by scheduling paths.</desc>
+  <rect width="800" height="600" fill="#f7f7f2"/>
+  <rect x="92" y="86" width="616" height="428" rx="18" fill="#ffffff" stroke="#d6d9de" stroke-width="4"/>
+  <g fill="#e9f2ff" stroke="#6e92bd" stroke-width="4">
+    <rect x="142" y="142" width="150" height="92" rx="10"/>
+    <rect x="326" y="142" width="150" height="92" rx="10"/>
+    <rect x="510" y="142" width="150" height="92" rx="10"/>
+    <rect x="142" y="366" width="150" height="92" rx="10"/>
+    <rect x="326" y="366" width="150" height="92" rx="10"/>
+    <rect x="510" y="366" width="150" height="92" rx="10"/>
+  </g>
+  <g fill="none" stroke="#d0813d" stroke-width="8" stroke-linecap="round">
+    <path d="M217 244v42c0 24 20 44 44 44h118c24 0 44-20 44-44v-42"/>
+    <path d="M584 244v42c0 24-20 44-44 44H421c-24 0-44 20-44 44v-8"/>
+  </g>
+  <g fill="#31445f">
+    <circle cx="217" cy="188" r="12"/>
+    <circle cx="401" cy="188" r="12"/>
+    <circle cx="585" cy="188" r="12"/>
+    <circle cx="217" cy="412" r="12"/>
+    <circle cx="401" cy="412" r="12"/>
+    <circle cx="585" cy="412" r="12"/>
+  </g>
+</svg>
