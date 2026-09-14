@@ -147,6 +147,10 @@ p {
   }
 }
 
+.paper-no-thumb .paper-info {
+  grid-column: 2;
+}
+
 .paper-highlight {
   position: relative;
   isolation: isolate;
@@ -164,7 +168,7 @@ p {
 
 .paper-thumb {
   display: block;
-  background: var(--soft);
+  background: #fff;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -172,8 +176,9 @@ p {
 .paper-thumb img {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .authors,
@@ -517,6 +522,10 @@ footer {
 
   .paper-thumb {
     max-width: 360px;
+  }
+
+  .paper-no-thumb .paper-info {
+    grid-column: 1;
   }
 
   .news-list li {
