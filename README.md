@@ -7,7 +7,7 @@ website structure. It is ready for GitHub Pages: upload the files to a
 ## How to edit
 
 Most content lives directly in `index.html`. This keeps the site close to the
-simple academic-homepage style and avoids a build step or data-rendering layer.
+simple academic-homepage style. The Markdown blog is rendered by Jekyll.
 
 To add a news item, copy one `<li>` inside the `News` section:
 
@@ -31,4 +31,27 @@ name if you do not want to edit HTML.
 
 Put your CV at `data/cv.pdf`, or change the CV link in `index.html`.
 
-The site has no build step. Open `index.html` directly in a browser to preview.
+## Blog
+
+Write articles directly as Markdown files in `blog/`, for example
+`blog/my-first-post.md`. Copy `blog/_template.md` and fill in the title, date,
+optional description, and Markdown body. Jekyll automatically renders articles
+and lists them newest first at `https://fexuile.github.io/blog/`.
+
+See [blog/README.md](blog/README.md) for writing, images, drafts, and publishing.
+
+GitHub Pages can build the source automatically when configured to deploy from
+the `main` branch's root directory. The homepage remains ordinary HTML.
+
+For local preview, install Ruby and Bundler, then run:
+
+```sh
+bundle install
+bundle exec jekyll serve --host 127.0.0.1 --port 8000
+```
+
+Open `http://127.0.0.1:8000/blog/`. A plain HTTP server over the source directory
+does not render Markdown or Liquid; serve the generated `_site/` directory instead.
+
+The existing Sites hosting setup serves `dist/`. To prepare that output, run
+`bundle exec jekyll build --destination dist` before publishing through Sites.

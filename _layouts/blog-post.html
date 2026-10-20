@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'zh-CN' | escape }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
+  <title>{{ page.title | escape }} · {{ site.title | escape }}</title>
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/stylesheet.css' | relative_url }}?v=20260914-compact-thumbnails">
+  <link rel="stylesheet" href="{{ '/blog/blog.css' | relative_url }}?v=20261020">
+</head>
+
+<body>
+  <main class="page blog-page">
+    <nav class="blog-nav" aria-label="Site navigation">
+      <a href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    </nav>
+
+    <article>
+      <header class="blog-header">
+        <h1>{{ page.title | escape }}</h1>
+{% if page.date %}
+        <p class="post-meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y-%m-%d' }}</time></p>
+{% endif %}
+      </header>
+      <div class="section post-content">
+        {{ content }}
+      </div>
+    </article>
+
+    <footer>
+      <p><a href="{{ '/blog/' | relative_url }}">Back to blog</a></p>
+    </footer>
+  </main>
+</body>
+</html>

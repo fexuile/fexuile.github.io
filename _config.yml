@@ -1,0 +1,28 @@
+title: Jinhao Guo
+description: Research notes, paper readings, and other thoughts.
+url: "https://fexuile.github.io"
+baseurl: ""
+timezone: Asia/Shanghai
+
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+kramdown:
+  input: GFM
+
+defaults:
+  - scope:
+      path: "blog"
+      type: "pages"
+    values:
+      layout: "blog-post"
+      lang: "zh-CN"
+
+exclude:
+  - README.md
+  - blog/README.md
+  - dist
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle

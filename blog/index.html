@@ -1,0 +1,61 @@
+---
+layout: null
+permalink: /blog/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research notes, paper readings, and other thoughts by Jinhao Guo.">
+  <title>Blog · Jinhao Guo</title>
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/stylesheet.css' | relative_url }}?v=20260914-compact-thumbnails">
+  <link rel="stylesheet" href="{{ '/blog/blog.css' | relative_url }}?v=20261020">
+</head>
+
+<body>
+  <main class="page blog-page">
+    <nav class="blog-nav" aria-label="Site navigation">
+      <a href="{{ '/' | relative_url }}">Jinhao Guo</a>
+      <a href="{{ '/blog/' | relative_url }}" aria-current="page">Blog</a>
+    </nav>
+
+    <header class="blog-header">
+      <h1>Blog</h1>
+      <p>Research notes, paper readings, and other thoughts.</p>
+    </header>
+
+    <section class="section" aria-labelledby="posts-heading">
+      <h2 id="posts-heading">Posts</h2>
+{% assign posts = site.pages | where: "layout", "blog-post" | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.published != false" | sort: "date" | reverse %}
+{% if posts.size > 0 %}
+      <ul class="post-list">
+{% for post in posts %}
+        <li>
+          <article>
+{% if post.date %}
+            <time class="post-meta" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y-%m-%d' }}</time>
+{% endif %}
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+{% if post.description %}
+            <p>{{ post.description | escape }}</p>
+{% endif %}
+          </article>
+        </li>
+{% endfor %}
+      </ul>
+{% else %}
+      <div class="blog-empty">
+        <p>No posts yet.</p>
+        <p>New writing will appear here.</p>
+      </div>
+{% endif %}
+    </section>
+
+    <footer>
+      <p><a href="{{ '/' | relative_url }}">Back to homepage</a></p>
+    </footer>
+  </main>
+</body>
+</html>
