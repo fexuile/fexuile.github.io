@@ -34,8 +34,10 @@ Put your CV at `data/cv.pdf`, or change the CV link in `index.html`.
 ## Blog
 
 Write articles directly as Markdown files in `blog/`, for example
-`blog/my-first-post.md`. Copy `blog/_template.md` and fill in the title, date,
-optional description, and Markdown body. Jekyll automatically renders articles
+`blog/my-first-post.md`. For quick creation, open `blog/` as an Obsidian vault
+and press **Cmd+Shift+P** (Windows/Linux: **Ctrl+Shift+P**) to create an article
+with today’s date and metadata. Edit its title and start writing. Alternatively,
+copy `blog/_template.md` and fill in the title, date, optional description, and body. Jekyll automatically renders articles
 and lists them newest first at `https://fexuile.github.io/blog/`.
 
 See [blog/README.md](blog/README.md) for writing, images, drafts, and publishing.

@@ -3,7 +3,30 @@
 文章直接放在这个文件夹中，例如 `blog/my-first-post.md`。
 GitHub Pages 使用 Jekyll 将 Markdown 转成网页，博客首页会自动按日期从新到旧列出文章。
 
-## 新建文章
+## 在 Obsidian 中快速新建（推荐）
+
+用 Obsidian 打开本目录 `blog/` 作为笔记库。首次使用这些配置时，完全退出 Obsidian（⌘Q）后重新打开，让插件和快捷键生效。
+
+### 一键开始写
+
+1. 按 **⌘⇧P**（Windows / Linux：**Ctrl+Shift+P**），自动创建 post 并插入标题、当天日期和简介字段。
+2. 新文件使用时间戳命名；可以直接改成 `cache-reading-notes` 这样的文件名（决定文章网址）。将 `title` 属性改成希望展示的文章标题，然后写正文。
+
+也可以点击左侧的“创建时间戳笔记”按钮，或按 **⌘P** 搜索“时间戳”，执行 **时间戳笔记生成器：创建时间戳笔记**（英文为 **Unique note creator: Create new unique note**）。
+原快捷键 **⌘⌥N** 保留为备用；如果没有反应，使用 **⌘⇧P** 或命令面板。
+文件名和 `title` 是独立的：创建后重命名文件不会自动修改文章标题。
+
+### 先命名，再自动填标题
+
+按 **⌘N** 新建笔记，先在笔记库根目录命名，再将光标放在空白正文中，按 **⌘⌥T**，选择 `post` 并回车。
+模板会用当前文件名填入标题，并自动填写当天日期。Windows / Linux 将 ⌘ 替换为 Ctrl、⌥ 替换为 Alt。
+
+这些入口使用 Obsidian 内置的“模板”和“唯一笔记创建器”，无需安装社区插件。
+模板位于 `_templates/post.md`，整个 `_templates/` 目录不会被 Jekyll 发布。
+不要直接复制这个动态模板：其中的 `{{title}}` 和 `{{date:YYYY-MM-DD}}` 需要通过 Obsidian 插入才能替换。
+新建文章后，仍按下方“发布”步骤提交并推送；未写完时添加 `published: false`。
+
+## 手动新建文章
 
 复制本目录的 `_template.md`，改名为 `my-first-post.md`，然后编辑内容：
 
