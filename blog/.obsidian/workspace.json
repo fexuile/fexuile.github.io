@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "d4b41108dd6e6331",
+        "id": "96b4c800aaeefd8e",
         "type": "tabs",
         "children": [
           {
-            "id": "a5d62bc20d1a70f2",
+            "id": "57f8dfb52394cf01",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "20261021153804.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "20261021153804"
+              "title": "新标签页"
             }
           }
         ]
@@ -186,10 +182,11 @@
       "bases:新建数据库": false
     }
   },
-  "active": "a5d62bc20d1a70f2",
+  "active": "57f8dfb52394cf01",
   "lastOpenFiles": [
-    "20261023014956.md",
+    "20261027160743.md",
     "20261021153804.md",
+    "20261023014956.md",
     "20261023010844.md",
     "20261022181102.md",
     "20261021151814.md",
