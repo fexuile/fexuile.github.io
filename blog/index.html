@@ -28,7 +28,8 @@ permalink: /blog/
 
     <section class="section" aria-labelledby="posts-heading">
       <h2 id="posts-heading">Posts</h2>
-{% assign posts = site.pages | where: "layout", "blog-post" | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.published != false" | sort: "date" | reverse %}
+{% comment %}Compare YYYY-MM-DD dates as strings to support both quoted and unquoted YAML dates.{% endcomment %}
+{% assign posts = site.pages | where: "layout", "blog-post" | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.published != false" | sort_natural: "date" | reverse %}
 {% if posts.size > 0 %}
       <ul class="post-list">
 {% for post in posts %}
